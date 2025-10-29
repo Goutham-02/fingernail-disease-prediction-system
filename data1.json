@@ -1,0 +1,1016 @@
+[
+    {
+        "name": "aloperia_areata",
+        "alternate_names": [
+            "Trachyonychia",
+            "Nail pitting in alopecia areata"
+        ],
+        "weights": {
+            "model_prob": 0.45,
+            "visual": 0.45,
+            "symptom": 0.10
+        },
+        "category": "Autoimmune disorder symptom",
+        "definition": "Nail changes, such as pitting or roughness, that occur as a manifestation of alopecia areata, an autoimmune disease where the immune system attacks hair follicles and sometimes the nail matrix.",
+        "causes": [
+            "The same autoimmune process that causes hair loss in alopecia areata, where immune cells attack the nail matrix (the tissue that forms the nail)."
+        ],
+        "risk_factors": [
+            "Having a personal or family history of alopecia areata."
+        ],
+        "visual_features": [
+            "Nail pitting (small, 'geometric' dents in the nail plate)",
+            "Trachyonychia (rough, 'sandpaper' nails)",
+            "Onycholysis (separation of the nail from the nail bed)",
+            "Onychomadesis (nail shedding)",
+            "Red spots or redness of the lunula (red lunula)"
+        ],
+        "associated_symptoms": [
+            "Patchy hair loss (alopecia areata)"
+        ],
+        "related_conditions": [
+            "Alopecia areata"
+        ],
+        "differential_diagnosis": [
+            "Psoriasis (which also causes pitting)",
+            "Lichen planus"
+        ],
+        "pathophysiology": "Inflammatory autoimmune response targeting the nail matrix, disrupting normal nail plate formation.",
+        "home_remedies": [],
+        "medical_treatments": [
+            "Treatment of the underlying alopecia areata, which may include topical, intralesional, or systemic corticosteroids.",
+            "Topical calcipotriol"
+        ],
+        "diagnostic_tests": [
+            "Clinical examination of nails, hair, and scalp.",
+            "Dermatoscopy"
+        ],
+        "when_to_see_doctor": [
+            "If nail changes are observed, especially if accompanied by patchy hair loss."
+        ],
+        "prognosis": "Nail changes may improve with successful treatment of the underlying alopecia areata, but can be persistent.",
+        "references": [
+            "https://dermnetnz.org/topics/nail-involvement-in-alopecia-areata",
+            "https://www.niams.nih.gov/health-topics/alopecia-areata"
+        ]
+    },
+    {
+        "name": "beau_s_lines",
+        "alternate_names": [
+            "Beau lines"
+        ],
+        "weights": {
+            "model_prob": 0.5,
+            "visual": 0.4,
+            "symptom": 0.1
+        },
+        "category": "Nail abnormality",
+        "definition": "Transverse (horizontal) depressions or grooves that run across the nail plate, caused by a temporary arrest of nail growth.",
+        "causes": [
+            "Temporary interruption of nail matrix proliferation (nail growth).",
+            "Severe systemic illness with high fever (e.g., pneumonia, measles, mumps)",
+            "Injury or trauma to the nail fold",
+            "Chemotherapy",
+            "Significant zinc deficiency",
+            "Raynaud's disease"
+        ],
+        "risk_factors": [
+            "Undergoing chemotherapy",
+            "Experiencing a recent severe illness or high fever",
+            "Uncontrolled diabetes",
+            "Peripheral vascular disease",
+            "Severe zinc deficiency"
+        ],
+        "visual_features": [
+            "Horizontal (transverse) indentations or grooves in the nail plate.",
+            "May affect one or all nails.",
+            "The line will grow out with the nail."
+        ],
+        "associated_symptoms": [
+            "Symptoms of the underlying illness (e.g., fever, fatigue) that caused the lines."
+        ],
+        "related_conditions": [
+            "Uncontrolled diabetes",
+            "Peripheral vascular disease",
+            "Illnesses associated with high fever (e.g., scarlet fever, measles, mumps, pneumonia)",
+            "Zinc deficiency",
+            "Raynaud's disease"
+        ],
+        "differential_diagnosis": [
+            "Muehrcke's lines (which are in the nail bed, not the plate)",
+            "Transverse leukonychia"
+        ],
+        "pathophysiology": "A temporary halt in the mitotic activity of the nail matrix, leading to a thinner, indented area of the nail plate being formed.",
+        "home_remedies": [
+            "No specific remedy; the lines will grow out over several months."
+        ],
+        "medical_treatments": [
+            "Addressing the underlying cause (e.g., controlling illness, supplementing zinc if deficient)."
+        ],
+        "diagnostic_tests": [
+            "Clinical history to identify a recent systemic illness, trauma, or drug exposure.",
+            "Blood tests if a systemic cause or deficiency is suspected."
+        ],
+        "when_to_see_doctor": [
+            "If the lines appear repeatedly without a clear cause (like injury or a single illness)."
+        ],
+        "prognosis": "The lines themselves are harmless and will grow out with the nail.",
+        "references": [
+            "https://www.mayoclinic.org/symptoms/nail-abnormalities/basics/definition/sym-20050842",
+            "https://dermnetnz.org/topics/beau-lines"
+        ]
+    },
+    {
+        "name": "bluish_nail",
+        "alternate_names": [
+            "Cyanosis",
+            "Blue nails"
+        ],
+        "weights": {
+            "model_prob": 0.6,
+            "visual": 0.35,
+            "symptom": 0.05
+        },
+        "category": "Symptom of underlying disease",
+        "definition": "A bluish or purplish discoloration of the nail bed (and often skin, lips, or mucous membranes) caused by a lack of oxygen in the blood.",
+        "causes": [
+            "Low oxygen levels in the blood (hypoxemia)."
+        ],
+        "risk_factors": [
+            "Having underlying lung or heart conditions.",
+            "Exposure to extreme cold.",
+            "Airway obstruction."
+        ],
+        "visual_features": [
+            "Blue or purple appearance of the nail bed."
+        ],
+        "associated_symptoms": [
+            "Shortness of breath or difficulty breathing (dyspnea)",
+            "Chest pain",
+            "Confusion",
+            "Coughing or wheezing"
+        ],
+        "related_conditions": [
+            "Lung diseases (e.g., COPD, pneumonia, pulmonary embolism, asthma attack)",
+            "Heart problems (e.g., congestive heart failure, congenital heart defects)",
+            "Airway obstruction (e.g., choking)",
+            "Severe cold exposure (can cause peripheral cyanosis)",
+            "Raynaud's phenomenon",
+            "Drug overdose"
+        ],
+        "differential_diagnosis": [
+            "Methemoglobinemia",
+            "Side effect of some medications (e.g., amiodarone)"
+        ],
+        "pathophysiology": "An increased amount of deoxygenated hemoglobin in the small blood vessels of the nail bed, making the blood appear blue or purple through the skin.",
+        "home_remedies": [
+            "If related to cold, warming the affected area."
+        ],
+        "medical_treatments": [
+            "Emergency oxygen therapy.",
+            "Treating the underlying heart, lung, or other medical condition."
+        ],
+        "diagnostic_tests": [
+            "Pulse oximetry (to measure blood oxygen saturation)",
+            "Arterial blood gas (ABG) test",
+            "Chest X-ray or CT scan",
+            "Echocardiogram (to check heart function)",
+            "Pulmonary function tests"
+        ],
+        "when_to_see_doctor": [
+            "Immediately. Cyanosis, especially when new and accompanied by breathing difficulties or chest pain, is a medical emergency."
+        ],
+        "prognosis": "Depends entirely on the underlying cause and the speed of treatment.",
+        "references": [
+            "https://medlineplus.gov/ency/article/003215.htm",
+            "https://my.clevelandclinic.org/health/symptoms/21525-cyanosis",
+            "https://www.mayoclinic.org/symptoms/nail-abnormalities/basics/definition/sym-20050842"
+        ]
+    },
+    {
+        "name": "clubbing",
+        "alternate_names": [
+            "Digital clubbing",
+            "Hippocratic fingers"
+        ],
+        "weights": {
+            "model_prob": 0.4,
+            "visual": 0.5,
+            "symptom": 0.1
+        },
+        "category": "Symptom of underlying disease",
+        "definition": "A physical sign characterized by the bulbous enlargement of the ends of the fingers and toes, with the nails curving down over the fingertips.",
+        "causes": [
+            "The exact mechanism is not fully understood, but it is often associated with conditions that cause low blood oxygen levels (hypoxia). It may involve vasodilation and growth factors (like platelet-derived growth factor) at the fingertips.",
+            "Can be inherited (familial clubbing), which is harmless."
+        ],
+        "risk_factors": [
+            "Having chronic lung or heart diseases.",
+            "Smoking (due to risk of lung cancer and other lung diseases)."
+        ],
+        "visual_features": [
+            "Enlargement or bulging of the distal (end) part of the finger or toe.",
+            "Downward curving of the nail plate.",
+            "Loss of the normal angle (Lovibond angle) between the nail bed and the proximal nail fold; the angle becomes greater than 180°.",
+            "Nail bed feels soft or 'spongy' when pressed.",
+            "Schamroth's sign (loss of the diamond-shaped window when the same-finger nails of opposite hands are placed back-to-back)."
+        ],
+        "associated_symptoms": [
+            "Symptoms of the underlying disease (e.g., chronic cough, shortness of breath, fatigue)."
+        ],
+        "related_conditions": [
+            "Lung diseases (especially lung cancer, interstitial lung disease, cystic fibrosis, bronchiectasis, pulmonary fibrosis)",
+            "Congenital heart disease (cyanotic types)",
+            "Infective endocarditis",
+            "Liver disease (e.g., cirrhosis)",
+            "Inflammatory bowel disease (Crohn's disease, ulcerative colitis)"
+        ],
+        "differential_diagnosis": [
+            "Familial clubbing",
+            "Hypertrophic osteoarthropathy"
+        ],
+        "pathophysiology": "Likely involves megakaryocytes or platelet clumps bypassing the lungs (in lung disease) and releasing growth factors (PDGF, VEGF) in the distal extremities, causing tissue proliferation and vascular changes.",
+        "home_remedies": [],
+        "medical_treatments": [
+            "Treatment of the underlying medical condition (e.g., surgery for lung cancer, medication for IBD)."
+        ],
+        "diagnostic_tests": [
+            "Physical examination (checking for Lovibond angle and Schamroth's sign).",
+            "Chest X-ray",
+            "CT scan of the chest",
+            "Pulmonary function tests",
+            "Echocardiogram",
+            "Blood tests"
+        ],
+        "when_to_see_doctor": [
+            "If clubbing is newly observed, as it is strongly associated with serious underlying diseases."
+        ],
+        "prognosis": "Clubbing itself is not harmful, but its presence often indicates a serious underlying condition. It may be reversible if the underlying cause is successfully treated.",
+        "references": [
+            "https://medlineplus.gov/ency/article/003282.htm",
+            "https://dermnetnz.org/topics/digital-clubbing"
+        ]
+    },
+    {
+        "name": "darier_s_disease",
+        "alternate_names": [
+            "Darier-White disease",
+            "Keratosis follicularis"
+        ],
+        "weights": {"model_prob": 0.45, "visual": 0.45, "symptom": 0.1},
+        "category": "Genetic disorder symptom",
+        "definition": "Characteristic nail abnormalities that are a key feature of Darier's disease, a rare genetic skin disorder affecting the skin, nails, and mucous membranes.",
+        "causes": [
+            "Genetic mutation in the ATP2A2 gene, inherited in an autosomal dominant pattern. This gene is involved in calcium pumping within cells, and its dysfunction affects cell-to-cell adhesion (acantholysis)."
+        ],
+        "risk_factors": [
+            "Having a parent with Darier's disease."
+        ],
+        "visual_features": [
+            "Red and/or white longitudinal (lengthwise) stripes/bands.",
+            "V-shaped nicks at the free edge (distal) of the nail.",
+            "Longitudinal splitting or fissuring (onychorrhexis).",
+            "Subungual hyperkeratosis (thickening of skin under the nail).",
+            "Fragile, brittle nails."
+        ],
+        "associated_symptoms": [
+            "Warty, greasy, crusted, skin-colored-to-brownish papules on the skin, especially in 'seborrheic' areas (scalp, face, chest, back).",
+            "Itching (pruritus).",
+            "Pits or papules on palms and soles.",
+            "White, cobblestone-like lesions in the mouth (oral mucosa)."
+        ],
+        "related_conditions": [
+            "Darier's disease"
+        ],
+        "differential_diagnosis": [
+            "Hailey-Hailey disease",
+            "Grover disease",
+            "Psoriasis"
+        ],
+        "pathophysiology": "A defective ATP2A2 gene leads to a faulty calcium pump (SERCA2), disrupting calcium signaling in keratinocytes. This causes a loss of cell-to-cell adhesion (acantholysis) and abnormal keratinization, resulting in the characteristic skin and nail lesions.",
+        "home_remedies": [
+            "Avoiding sun exposure (which can worsen flare-ups).",
+            "Keeping skin cool and dry.",
+            "Using antiseptics to prevent secondary infection."
+        ],
+        "medical_treatments": [
+            "Topical retinoids (e.g., tazarotene, adapalene) to normalize cell turnover.",
+            "Topical corticosteroids (for inflammation).",
+            "Keratolytics (e.g., salicylic acid) to reduce thickening.",
+            "Oral retinoids (e.g., acitretin, isotretinoin) for severe cases."
+        ],
+        "diagnostic_tests": [
+            "Clinical examination of skin, nails, and mucosa.",
+            "Skin biopsy (shows acantholysis and dyskeratosis).",
+            "Genetic testing for the ATP2A2 mutation."
+        ],
+        "when_to_see_doctor": [
+            "If characteristic skin or nail changes are observed, to get a proper diagnosis and management plan."
+        ],
+        "prognosis": "A chronic condition with a fluctuating course; symptoms can vary in severity and may be triggered by heat, sun, or stress.",
+        "references": [
+            "https://dermnetnz.org/topics/darier-disease",
+            "https://medlineplus.gov/genetics/condition/darier-disease/"
+        ]
+    },
+    {
+        "name": "eczema",
+        "alternate_names": [
+            "Nail eczema",
+            "Dermatitis nails"
+        ],
+        "weights": {"model_prob": 0.4, "visual": 0.45, "symptom": 0.15},
+        "category": "Inflammatory skin condition symptom",
+        "definition": "Nail changes, such as pitting and ridges, resulting from eczema (dermatitis) that affects the skin around the nails (nail folds) or the nail matrix.",
+        "causes": [
+            "Inflammation of the proximal nail fold or nail matrix due to atopic dermatitis, pompholyx (dyshidrotic eczema), or irritant/allergic contact dermatitis."
+        ],
+        "risk_factors": [
+            "Personal or family history of atopic dermatitis.",
+            "Frequent exposure to water, detergents, or other irritants (irritant contact dermatitis).",
+            "Allergies to substances like nickel or acrylates in nail products (allergic contact dermatitis)."
+        ],
+        "visual_features": [
+            "Coarse pitting (small dents) of the nail plate.",
+            "Transverse ridges (Beau's lines) from intermittent inflammation.",
+            "Trachyonychia (rough, opaque, 'sandpaper' nails).",
+            "Onychomadesis (nail shedding) in severe flare-ups.",
+            "Onycholysis (nail lifting).",
+            "Cuticle inflammation (paronychia).",
+            "Shiny, 'buffed' nails from chronic rubbing/itching."
+        ],
+        "associated_symptoms": [
+            "Itchy, red, scaly, or vesicular (blistering) skin on the hands and fingers, especially around the nail folds."
+        ],
+        "related_conditions": [
+            "Atopic dermatitis",
+            "Pompholyx (dyshidrotic eczema)",
+            "Allergic contact dermatitis",
+            "Irritant contact dermatitis"
+        ],
+        "differential_diagnosis": [
+            "Nail psoriasis",
+            "Onychomycosis (fungal infection)"
+        ],
+        "pathophysiology": "Inflammation in the nail matrix or nail folds disrupts the normal process of keratinization and nail plate formation, leading to physical defects in the nail.",
+        "home_remedies": [
+            "Avoiding known irritants and allergens.",
+            "Wearing gloves (cotton-lined) for wet work.",
+            "Using gentle cleansers and applying thick emollients/moisturizers frequently."
+        ],
+        "medical_treatments": [
+            "Potent topical corticosteroids applied to the nail folds.",
+            "Intralesional corticosteroid injections.",
+            "Topical calcineurin inhibitors (e.g., tacrolimus)."
+        ],
+        "diagnostic_tests": [
+            "Clinical examination based on nail changes and presence of eczema on hands.",
+            "Patch testing if allergic contact dermatitis is suspected.",
+            "Nail clippings for KOH test to rule out fungal infection."
+        ],
+        "when_to_see_doctor": [
+            "If nail changes are persistent, painful, or skin on hands is severely cracked, weeping, or itchy."
+        ],
+        "prognosis": "Nail changes tend to improve as the underlying hand eczema is controlled, but it can be a chronic and recurring problem.",
+        "references": [
+            "https://dermnetnz.org/topics/nail-eczema"
+        ]
+    },
+    {
+        "name": "half_and_half_nails",
+        "alternate_names": [
+            "Lindsay's nails",
+            "Apparent leukonychia"
+        ],
+        "weights": {"model_prob": 0.45, "visual": 0.45, "symptom": 0.10},
+        "category": "Symptom of underlying disease",
+        "definition": "A nail abnormality where the proximal (bottom) half of the nail is white and opaque, and the distal (top) half is a normal pink or reddish-brown color.",
+        "causes": [
+            "The exact mechanism is unknown. It is thought to be related to edema (swelling) in the nail bed and changes in nail bed vasculature, associated with chronic kidney disease and uremia. The brown distal portion may be due to increased melanin deposition."
+        ],
+        "risk_factors": [
+            "Having chronic kidney disease (CKD), especially end-stage renal disease.",
+            "Being on hemodialysis."
+        ],
+        "visual_features": [
+            "The nail is divided into two horizontal zones.",
+            "The proximal (bottom) 40-80% of the nail is opaque white.",
+            "The distal (top) 20-60% is a normal pink or reddish-brown color.",
+            "The demarcation line is sharp."
+        ],
+        "associated_symptoms": [
+            "Symptoms of chronic kidney disease (e.g., fatigue, swelling in legs, changes in urination, itching)."
+        ],
+        "related_conditions": [
+            "Chronic kidney disease (CKD) / Uremia (most common)",
+            "Can also be seen in liver cirrhosis or Crohn's disease."
+        ],
+        "differential_diagnosis": [
+            "Terry's nails (which is mostly white with only a small distal band)."
+        ],
+        "pathophysiology": "Likely secondary to edema of the nail bed and altered blood flow associated with chronic renal failure. The distal brown band is from melanin deposition stimulated by uremia.",
+        "home_remedies": [],
+        "medical_treatments": [
+            "No specific treatment for the nails; management focuses on treating the underlying chronic kidney disease."
+        ],
+        "diagnostic_tests": [
+            "Blood tests for kidney function (e.g., serum creatinine, BUN).",
+            "Urinalysis."
+        ],
+        "when_to_see_doctor": [
+            "If this nail change is observed, as it is a strong indicator of underlying, potentially serious, systemic disease."
+        ],
+        "prognosis": "The nail appearance may or may not improve with treatment (e.g., dialysis or kidney transplant) of the underlying disease.",
+        "references": [
+            "https://dermnetnz.org/topics/half-and-half-nail",
+            "https://www.mayoclinic.org/healthy-lifestyle/adult-health/multimedia/nails/sls-20076131?s=4"
+        ]
+    },
+    {
+        "name": "koilonychia",
+        "alternate_names": [
+            "Spoon nails"
+        ],
+        "weights": {"model_prob": 0.4, "visual": 0.5, "symptom": 0.1},
+        "category": "Nail abnormality",
+        "definition": "A nail abnormality where the nail plate is thinned, concave (curved inward), and has raised ridges, resembling the shape of a spoon.",
+        "causes": [
+            "Iron deficiency anemia (most common cause in adults).",
+            "Hemochromatosis (iron overload).",
+            "Trauma or occupational exposure to petroleum-based solvents.",
+            "Can be normal in infants, but usually self-corrects.",
+            "Systemic lupus erythematosus (SLE).",
+            "Raynaud's disease."
+        ],
+        "risk_factors": [
+            "Poor diet low in iron.",
+            "Malabsorption disorders (e.g., celiac disease).",
+            "Chronic blood loss.",
+            "Genetic predisposition for hemochromatosis."
+        ],
+        "visual_features": [
+            "Thin, fragile nail plate that is concave or 'scooped out' in the center, like a spoon.",
+            "The nail may be able to hold a drop of water."
+        ],
+        "associated_symptoms": [
+            "If due to anemia: fatigue, weakness, pale skin, shortness of breath, headache."
+        ],
+        "related_conditions": [
+            "Iron deficiency anemia",
+            "Hemochromatosis",
+            "Systemic lupus erythematosus (SLE)",
+            "Raynaud's disease",
+            "Lichen planus",
+            "Psoriasis"
+        ],
+        "differential_diagnosis": [
+            "Thin nails from other causes (e.g., lichen planus)."
+        ],
+        "pathophysiology": "In iron deficiency, the exact mechanism is unclear but may relate to reduced levels of iron-dependent enzymes in epithelial tissue, leading to a weakening and altered shape of the nail matrix and plate.",
+        "home_remedies": [
+            "If due to iron deficiency, consuming iron-rich foods (e.g., red meat, beans, spinach)."
+        ],
+        "medical_treatments": [
+            "Treating the underlying cause.",
+            "Oral iron supplementation for iron deficiency anemia.",
+            "Phlebotomy for hemochromatosis."
+        ],
+        "diagnostic_tests": [
+            "Complete blood count (CBC) to check for anemia.",
+            "Iron studies (serum ferritin, serum iron, TIBC) to confirm iron deficiency or overload."
+        ],
+        "when_to_see_doctor": [
+            "If nails become spoon-shaped, to investigate for an underlying nutritional deficiency or systemic disease."
+        ],
+        "prognosis": "Nails typically return to a normal shape after the underlying condition (e.g., iron deficiency) is successfully treated, though it takes months for the new nail to grow out.",
+        "references": [
+            "https://medlineplus.gov/ency/article/003247.htm",
+            "https://dermnetnz.org/topics/koilonychia",
+            "https://my.clevelandclinic.org/health/diseases/23204-koilonychia-spoon-nails"
+        ]
+    },
+    {
+        "name": "leukonychia",
+        "alternate_names": [
+            "White spots on nails",
+            "Leukonychia punctata",
+            "Leukonychia totalis"
+        ],
+        "weights": {"model_prob": 0.5, "visual": 0.4, "symptom": 0.1},
+        "category": "Nail abnormality",
+        "definition": "A condition characterized by white spots, lines, or total whitening of the nail plate. 'True leukonychia' is a defect in the nail plate itself, caused by abnormal keratinization in the nail matrix.",
+        "causes": [
+            "Minor trauma or injury to the nail matrix (the base of the nail) - this is the most common cause of small white spots (leukonychia punctata).",
+            "Allergic reaction to nail polish or hardeners.",
+            "Fungal infection (onychomycosis).",
+            "Mineral deficiency (e.g., zinc, calcium) - this is less common than popularly believed.",
+            "Systemic illness (e.g., heart disease, kidney failure, pneumonia) - rare cause.",
+            "Inherited genetic condition (rare, usually causes total whitening)."
+        ],
+        "risk_factors": [
+            "Frequent manicures.",
+            "Activities that cause repetitive minor trauma to the nails."
+        ],
+        "visual_features": [
+            "Leukonychia punctata: Small white dots or spots.",
+            "Leukonychia striata: White transverse (horizontal) lines.",
+            "Leukonychia partialis: Partial whitening of the nail plate.",
+            "Leukonychia totalis: Complete, opaque whitening of the entire nail plate."
+        ],
+        "associated_symptoms": [
+            "Usually none, unless related to a systemic illness or fungal infection (which may cause nail thickening)."
+        ],
+        "related_conditions": [
+            "Onychomycosis (fungal infection)",
+            "Allergic contact dermatitis",
+            "Rarely: Systemic illnesses (kidney failure, heart disease), genetic syndromes."
+        ],
+        "differential_diagnosis": [
+            "Apparent leukonychia (Muehrcke's lines, Terry's nails) - where the nail bed is white, not the plate.",
+            "Nail psoriasis",
+            "Onychomycosis"
+        ],
+        "pathophysiology": "True leukonychia is caused by abnormal keratinization of the nail matrix. Cells in the nail plate retain their nuclei (parakeratosis) instead of dying, which makes the nail opaque and appear white.",
+        "home_remedies": [
+            "For trauma-induced spots: Allowing the nail to grow out. The white spot will move up with the nail and can eventually be clipped off.",
+            "Avoiding trauma to the nails."
+        ],
+        "medical_treatments": [
+            "No treatment is needed for minor trauma spots.",
+            "Treating the underlying cause if one is identified (e.g., antifungal for onychomycosis, stopping the allergen)."
+        ],
+        "diagnostic_tests": [
+            "Usually diagnosed by clinical appearance and history of trauma.",
+            "Nail clippings for mycology (fungal culture) if infection is suspected.",
+            "Blood tests if a systemic cause or deficiency is suspected."
+        ],
+        "when_to_see_doctor": [
+            "If the whitening is total (leukonychia totalis), persistent, or occurs on all nails, to rule out a systemic issue."
+        ],
+        "prognosis": "White spots from trauma are harmless and resolve as the nail grows.",
+        "references": [
+            "https://dermnetnz.org/topics/leukonychia",
+            "https://my.clevelandclinic.org/health/diseases/24467-leukonychia"
+        ]
+    },
+    {
+        "name": "muehrcke_s_lines",
+        "alternate_names": [
+            "Muehrcke's nails"
+        ],
+        "weights": {"model_prob": 0.5, "visual": 0.4, "symptom": 0.1},
+        "category": "Symptom of underlying disease",
+        "definition": "A form of 'apparent leukonychia' characterized by paired, white, transverse (horizontal) bands that run across the nail bed, not the nail plate. They are associated with low protein levels in the blood.",
+        "causes": [
+            "Hypoalbuminemia (low levels of serum albumin, a protein in the blood).",
+            "The lines are thought to be due to edema (swelling) in the nail bed, which compresses the underlying vasculature."
+        ],
+        "risk_factors": [
+            "Having conditions that cause severe protein loss or malnutrition."
+        ],
+        "visual_features": [
+            "Paired, white, horizontal lines that run parallel to the lunula.",
+            "The lines are in the nail bed, so they do *not* move or grow out with the nail.",
+            "The lines temporarily disappear when the nail is pressed down (blanched)."
+        ],
+        "associated_symptoms": [
+            "Symptoms of hypoalbuminemia, such as edema (swelling) in the legs, ankles, and feet."
+        ],
+        "related_conditions": [
+            "Hypoalbuminemia",
+            "Nephrotic syndrome (a kidney disorder that causes protein loss, the most common association)",
+            "Liver disease (e.g., cirrhosis)",
+            "Severe malnutrition or malabsorption"
+        ],
+        "differential_diagnosis": [
+            "Beau's lines (which are grooves *in* the nail plate and grow out)",
+            "Leukonychia striata (which are white lines *in* the nail plate and grow out)"
+        ],
+        "pathophysiology": "Hypoalbuminemia leads to decreased plasma oncotic pressure, causing edema in the loose connective tissue of the nail bed. This localized edema is thought to compress the microvasculature, creating the visible white bands.",
+        "home_remedies": [],
+        "medical_treatments": [
+            "No treatment for the nails themselves.",
+            "Treatment of the underlying condition to correct the hypoalbuminemia (e.g., managing nephrotic syndrome, improving nutrition)."
+        ],
+        "diagnostic_tests": [
+            "Serum albumin blood test (to check protein levels).",
+            "Urinalysis (to check for protein in the urine, indicating nephrotic syndrome).",
+            "Liver function tests."
+        ],
+        "when_to_see_doctor": [
+            "If these lines are observed, as they are a strong sign of low protein and an underlying systemic disease."
+        ],
+        "prognosis": "The lines typically fade and disappear once the serum albumin levels return to normal.",
+        "references": [
+            "https://dermnetnz.org/topics/muehrcke-lines"
+        ]
+    },
+    {
+        "name": "onycholysis",
+        "alternate_names": [
+            "Nail lifting",
+            "Nail separation"
+        ],
+        "weights": {"model_prob": 0.45, "visual": 0.45, "symptom": 0.10},
+        "category": "Nail abnormality",
+        "definition": "The painless separation or lifting of the nail plate (the hard part of the nail) from the underlying nail bed (the skin underneath).",
+        "causes": [
+            "Trauma (most common): Repetitive tapping, aggressive cleaning under nails, occupational trauma, long nails.",
+            "Skin diseases: Psoriasis, eczema (dermatitis).",
+            "Fungal infection: Onychomycosis.",
+            "Chemicals: Exposure to water, detergents, solvents, or allergic reaction to nail products (e.g., acrylics, polish).",
+            "Medications: Especially tetracycline antibiotics (doxycycline, minocycline) combined with sun exposure (photo-onycholysis).",
+            "Systemic disease: Thyroid disease (especially hyperthyroidism), iron deficiency."
+        ],
+        "risk_factors": [
+            "Frequent manicures or use of artificial nails.",
+            "Occupations involving frequent hand washing or chemical exposure (e.g., healthcare workers, cleaners, hairdressers).",
+            "Having psoriasis or thyroid disease."
+        ],
+        "visual_features": [
+            "The nail plate appears lifted from the nail bed.",
+            "The separated area is opaque and may appear white, yellowish, or gray.",
+            "The area may turn greenish-black if a secondary *Pseudomonas* bacterial infection occurs in the space."
+        ],
+        "associated_symptoms": [
+            "Usually painless.",
+            "If infected, may have discoloration or tenderness."
+        ],
+        "related_conditions": [
+            "Psoriasis",
+            "Onychomycosis (fungal infection)",
+            "Hyperthyroidism (thyrotoxicosis)",
+            "Eczema / Dermatitis",
+            "Trauma"
+        ],
+        "differential_diagnosis": [
+            "Onychomadesis (which is shedding of the nail from the base, not the tip)."
+        ],
+        "pathophysiology": "A disruption of the bond between the nail plate and the nail bed, allowing air and debris to enter the subungual space.",
+        "home_remedies": [
+            "Keep nails trimmed short to reduce leverage and trauma.",
+            "Avoid cleaning under the nail with sharp objects.",
+            "Wear waterproof, cotton-lined gloves when working with water or chemicals.",
+            "Avoid nail polish and artificial nails during recovery.",
+            "Keep the affected area clean and dry."
+        ],
+        "medical_treatments": [
+            "Treating the underlying cause (e.g., antifungal medication for fungus, managing psoriasis or thyroid disease).",
+            "If traumatic, no treatment is needed other than avoidance of trauma; the nail must grow out, which can take 4-6 months for fingernails.",
+            "Topical antibiotics or antiseptics (like acetic acid/vinegar soaks) if secondarily infected with bacteria."
+        ],
+        "diagnostic_tests": [
+            "Clinical examination.",
+            "Nail clippings for KOH test and fungal culture (to rule out onychomycosis).",
+            "Blood tests (e.g., TSH) if thyroid disease is suspected."
+        ],
+        "when_to_see_doctor": [
+            "If the separation is persistent, spreading to other nails, or shows signs of infection (e.g., green/black discoloration, pus, pain)."
+        ],
+        "prognosis": "Prognosis is good if the underlying cause is identified and corrected, but reattachment is slow and requires the nail to grow out completely.",
+        "references": [
+            "https://my.clevelandclinic.org/health/diseases/22432-onycholysis",
+            "https://dermnetnz.org/topics/onycholysis"
+        ]
+    },
+    {
+        "name": "pale_nail",
+        "alternate_names": [
+            "Pallor of the nail bed"
+        ],
+        "weights": {"model_prob": 0.6, "visual": 0.35, "symptom": 0.05},
+        "category": "Symptom of underlying disease",
+        "definition": "An unusual paleness of the nail beds, which are normally pink. This suggests poor blood flow or a low red blood cell count.",
+        "causes": [
+            "Reduced blood flow to the extremities.",
+            "Low number of red blood cells (anemia)."
+        ],
+        "risk_factors": [
+            "Poor nutrition (iron, B12, or folate deficiency).",
+            "Chronic diseases.",
+            "Conditions causing blood loss."
+        ],
+        "visual_features": [
+            "Nail beds appear very pale, white, or light pink.",
+            "May be more noticeable when compared to a healthy person's nail bed."
+        ],
+        "associated_symptoms": [
+            "If due to anemia: fatigue, weakness, dizziness, shortness of breath, cold hands and feet, pale skin.",
+            "If due to heart failure: swelling in legs, shortness of breath, fatigue."
+        ],
+        "related_conditions": [
+            "Anemia (especially iron deficiency anemia)",
+            "Congestive heart failure",
+            "Liver disease (e.g., cirrhosis, which can also cause Terry's nails)",
+            "Malnutrition",
+            "Peripheral vascular disease"
+        ],
+        "differential_diagnosis": [
+            "Terry's nails (which is a specific pattern of whiteness)",
+            "Normal variation"
+        ],
+        "pathophysiology": "Pallor is due to either a reduced quantity of hemoglobin in the blood (anemia) or reduced blood perfusion of the nail bed capillaries (as in heart failure or vascular disease).",
+        "home_remedies": [],
+        "medical_treatments": [
+            "Treatment of the underlying cause (e.g., iron supplements for anemia, medications for heart failure)."
+        ],
+        "diagnostic_tests": [
+            "Complete blood count (CBC) to check for anemia (low hemoglobin and hematocrit).",
+            "Iron studies.",
+            "Tests for heart or liver function if suspected."
+        ],
+        "when_to_see_doctor": [
+            "If pale nails are persistent and accompanied by other systemic symptoms like fatigue, weakness, or shortness of breath."
+        ],
+        "prognosis": "Depends on the underlying condition.",
+        "references": [
+            "https://www.mayoclinic.org/symptoms/nail-abnormalities/basics/definition/sym-20050842",
+            "https://medlineplus.gov/ency/article/000560.htm"
+        ]
+    },
+    {
+        "name": "red_lunula",
+        "alternate_names": [
+            "Spotted lunula"
+        ],
+        "weights": {"model_prob": 0.5, "visual": 0.4, "symptom": 0.1},
+        "category": "Symptom of underlying disease",
+        "definition": "Redness or red spotting of the lunula, which is the normally white, half-moon shaped area at the base of the nail.",
+        "causes": [
+            "Inflammation or vascular changes (vasodilation) in the nail bed tissue of the lunula."
+        ],
+        "risk_factors": [
+            "Having an underlying autoimmune or cardiovascular condition."
+        ],
+        "visual_features": [
+            "The entire lunula appears red instead of white.",
+            "May also appear as red spots within the lunula."
+        ],
+        "associated_symptoms": [
+            "Symptoms of the underlying condition (e.g., joint pain in rheumatoid arthritis, hair loss in alopecia areata)."
+        ],
+        "related_conditions": [
+            "Alopecia areata",
+            "Collagen vascular diseases (e.g., Systemic lupus erythematosus, Rheumatoid arthritis, Dermatomyositis)",
+            "Cardiovascular disease",
+            "Carbon monoxide poisoning (less common)"
+        ],
+        "differential_diagnosis": [
+            "Trauma to the nail base."
+        ],
+        "pathophysiology": "Likely due to localized vasodilation and increased blood flow or inflammation in the distal matrix and nail bed that underlies the lunula.",
+        "home_remedies": [],
+        "medical_treatments": [
+            "Treatment of the underlying systemic disease."
+        ],
+        "diagnostic_tests": [
+            "Clinical examination.",
+            "Blood tests for autoimmune markers (e.g., ANA, RF) or cardiovascular risk factors."
+        ],
+        "when_to_see_doctor": [
+            "If red lunulae are observed, as they can be a marker for an underlying systemic inflammatory or vascular disease."
+        ],
+        "prognosis": "Depends on the associated systemic condition.",
+        "references": [
+            "https://dermnetnz.org/topics/nail-involvement-in-alopecia-areata",
+            "https://dermnetnz.org/topics/systemic-disease-and-the-nails"
+        ]
+    },
+    {
+        "name": "splinter_hemorrhage",
+        "alternate_names": [],
+        "weights": {"model_prob": 0.4, "visual": 0.5, "symptom": 0.1},
+        "category": "Nail abnormality",
+        "definition": "Small areas of bleeding (hemorrhage) under the nail plate that look like tiny, thin, vertical lines. They are formed by the rupture of small capillaries in the nail bed.",
+        "causes": [
+            "Trauma (injury) to the nail (most common cause, e.g., hitting the finger).",
+            "Infective endocarditis (a serious infection of the heart valves).",
+            "Nail psoriasis.",
+            "Vasculitis (inflammation of blood vessels).",
+            "Systemic lupus erythematosus (SLE)."
+        ],
+        "risk_factors": [
+            "Manual labor or activities that risk nail trauma.",
+            "Having psoriasis.",
+            "Intravenous drug use (risk factor for endocarditis)."
+        ],
+        "visual_features": [
+            "Thin, reddish-brown or black lines that run vertically (in the direction of nail growth).",
+            "They are 'splinter'-like in appearance.",
+            "They are in the nail bed and will grow out with the nail."
+        ],
+        "associated_symptoms": [
+            "If due to trauma, may have localized tenderness.",
+            "If due to endocarditis, may have fever, chills, fatigue, heart murmur, Osler nodes, Janeway lesions."
+        ],
+        "related_conditions": [
+            "Trauma (most common)",
+            "Infective endocarditis",
+            "Nail psoriasis",
+            "Vasculitis",
+            "Systemic lupus erythematosus (SLE)",
+            "Rheumatoid arthritis"
+        ],
+        "differential_diagnosis": [
+            "Fungal infection (melanonychia)",
+            "Benign nevus (mole) under the nail"
+        ],
+        "pathophysiology": "Bleeding from the longitudinally-oriented capillaries of the nail bed, which then becomes trapped under the nail plate. In systemic diseases like endocarditis, this is thought to be caused by tiny septic emboli or immune complex deposition.",
+        "home_remedies": [
+            "If caused by trauma, no treatment is needed. It will grow out with the nail."
+        ],
+        "medical_treatments": [
+            "If endocarditis is suspected, urgent medical evaluation and intravenous antibiotics are required.",
+            "Treatment of other underlying conditions (e.g., psoriasis)."
+        ],
+        "diagnostic_tests": [
+            "Clinical history (to check for trauma).",
+            "If endocarditis is suspected: Blood cultures, Echocardiogram (heart ultrasound)."
+        ],
+        "when_to_see_doctor": [
+            "If they appear on multiple nails without any history of trauma.",
+            "If accompanied by fever, chills, or other signs of systemic illness (this is a medical emergency)."
+        ],
+        "prognosis": "Traumatic hemorrhages are harmless. If due to endocarditis, prognosis depends on rapid diagnosis and treatment of the heart infection.",
+        "references": [
+            "https://medlineplus.gov/ency/article/003283.htm",
+            "https://my.clevelandclinic.org/health/diseases/23974-splinter-hemorrhage",
+            "https://dermnetnz.org/topics/splinter-haemorrhage"
+        ]
+    },
+    {
+        "name": "terry_s_nail",
+        "alternate_names": [],
+        "weights": {"model_prob": 0.5, "visual": 0.4, "symptom": 0.1},
+        "category": "Symptom of underlying disease",
+        "definition": "A type of 'apparent leukonychia' (discoloration of the nail bed) where most of the nail appears white or 'ground-glass' opaque, with only a narrow, 0.5 to 3 mm pink or brown band at the distal (tip) end.",
+        "causes": [
+            "The whiteness is thought to be due to changes in nail bed vasculature (reduced blood supply) and an overgrowth of connective tissue in the nail bed.",
+            "Commonly associated with aging.",
+            "Strongly associated with serious systemic diseases."
+        ],
+        "risk_factors": [
+            "Advanced age.",
+            "Having liver disease, heart failure, or diabetes."
+        ],
+        "visual_features": [
+            "Most of the nail (80% or more) is opaque white, often described as 'ground-glass'.",
+            "A narrow pink or brown band is present at the distal tip.",
+            "The lunula (half-moon) may be obscured.",
+            "Typically affects all nails."
+        ],
+        "associated_symptoms": [
+            "Symptoms of the underlying disease (e.g., jaundice, ascites in liver disease; shortness of breath, edema in heart failure; excessive thirst in diabetes)."
+        ],
+        "related_conditions": [
+            "Liver disease (especially cirrhosis - the strongest association)",
+            "Congestive heart failure",
+            "Type 2 diabetes",
+            "Chronic kidney disease",
+            "Malnutrition",
+            "Normal aging"
+        ],
+        "differential_diagnosis": [
+            "Half and half nails (which has a larger, 20-60% distal band and is linked to kidney disease).",
+            "Leukonychia totalis (completely white nail plate)."
+        ],
+        "pathophysiology": "Believed to be caused by a reduction in blood vessels and an increase in connective tissue within the nail bed, which obscures the normal pink color from the underlying blood flow.",
+        "home_remedies": [],
+        "medical_treatments": [
+            "No treatment for the nails; management focuses on treating the underlying systemic disease."
+        ],
+        "diagnostic_tests": [
+            "Clinical examination.",
+            "Liver function tests.",
+            "Blood glucose levels.",
+            "Tests for heart or kidney function."
+        ],
+        "when_to_see_doctor": [
+            "If this nail change is observed, as it is a strong indicator of underlying systemic disease."
+        ],
+        "prognosis": "The nail appearance may or may not improve with management of the underlying condition.",
+        "references": [
+            "https://www.mayoclinic.org/symptoms/nail-abnormalities/basics/definition/sym-20050842",
+            "https://dermnetnz.org/topics/terry-nails",
+            "https://my.clevelandclinic.org/health/diseases/24816-terrys-nails"
+        ]
+    },
+    {
+        "name": "white_nail",
+        "alternate_names": [
+            "Leukonychia"
+        ],
+        "weights": {"model_prob": 0.5, "visual": 0.4, "symptom": 0.1},
+        "category": "Nail abnormality",
+        "definition": "A general term for nails that appear partially or completely white. This is not a single diagnosis but a finding that can be caused by several conditions.",
+        "causes": [
+            "Injury (trauma) to the nail matrix (causing white spots).",
+            "Fungal infection (onychomycosis), which can cause a white, powdery, or crumbly surface.",
+            "Apparent leukonychia (whiteness of the nail *bed*), as seen in Terry's nails (liver disease, heart failure) or Muehrcke's lines (low protein).",
+            "True leukonychia (whiteness of the nail *plate*), which can be genetic or, rarely, associated with systemic illness."
+        ],
+        "risk_factors": [
+            "Vary depending on the cause (e.g., trauma, poor circulation, systemic disease, exposure to fungus)."
+        ],
+        "visual_features": [
+            "Can range from small white dots (punctate leukonychia) to transverse lines (leukonychia striata, Muehrcke's lines) to a mostly white nail (Terry's nails) or a completely opaque white nail plate (leukonychia totalis)."
+        ],
+        "associated_symptoms": [
+            "Depend on the cause. Fungal infections may cause thickening and crumbling. Systemic disease may have fatigue, swelling, etc."
+        ],
+        "related_conditions": [
+            "Onychomycosis (fungal infection)",
+            "Trauma",
+            "Liver disease (Terry's nails)",
+            "Kidney disease (Half-and-half nails)",
+            "Hypoalbuminemia (Muehrcke's lines)",
+            "Psoriasis"
+        ],
+        "differential_diagnosis": [
+            "Must differentiate between: True leukonychia (plate problem) vs. Apparent leukonychia (bed problem) vs. Onychomycosis (infection)."
+        ],
+        "pathophysiology": "Varies by cause. Can be parakeratosis in the nail plate (true leukonychia), fungal elements (onychomycosis), or changes in the nail bed vasculature and connective tissue (apparent leukonychia).",
+        "home_remedies": [
+            "For trauma spots: wait for them to grow out.",
+            "For suspected fungus: keep feet clean and dry."
+        ],
+        "medical_treatments": [
+            "Depends on the cause: Antifungals for onychomycosis, no treatment for trauma, management of systemic disease for Terry's or Muehrcke's lines."
+        ],
+        "diagnostic_tests": [
+            "Clinical examination.",
+            "Pressing on the nail (apparent leukonychia, like Muehrcke's, will blanch; true leukonychia will not).",
+            "Nail clippings for mycology.",
+            "Blood tests for systemic disease."
+        ],
+        "when_to_see_doctor": [
+            "If whiteness covers most or all of the nail, or is associated with other symptoms (thickening, crumbling, fatigue, swelling)."
+        ],
+        "prognosis": "Depends on the underlying cause.",
+        "references": [
+            "https://www.mayoclinic.org/symptoms/nail-abnormalities/basics/definition/sym-20050842",
+            "https://dermnetnz.org/topics/leukonychia"
+        ]
+    },
+    {
+        "name": "yellow_nails",
+        "alternate_names": [],
+        "weights": {"model_prob": 0.55, "visual": 0.4, "symptom": 0.05},
+        "category": "Rare disorder",
+        "definition": "A rare disorder characterized by a 'classic triad' of symptoms: 1) yellow, thickened, slow-growing nails, 2) lymphedema (swelling, usually in the legs), and 3) respiratory problems.",
+        "causes": [
+            "The exact cause is unknown. It is thought to be related to problems with the lymphatic system, specifically poor lymphatic drainage, which affects the nails, lungs, and extremities."
+        ],
+        "risk_factors": [
+            "Typically occurs in middle-aged or older adults, though it can happen at any age.",
+            "Rarely, it has been associated with certain cancers (paraneoplastic syndrome) or autoimmune diseases."
+        ],
+        "visual_features": [
+            "Nails become thickened, hard, and turn a pale yellow to greenish color.",
+            "Nails grow very slowly (less than 0.5 mm/week) or stop growing.",
+            "Nails become excessively curved (over-curvature).",
+            "Onycholysis (separation from the nail bed) is common.",
+            "Loss of the cuticle."
+        ],
+        "associated_symptoms": [
+            "Lymphedema: Swelling in the legs or other body parts due to fluid buildup.",
+            "Respiratory problems: Chronic cough, bronchiectasis (damaged, widened airways), pleural effusions (fluid around the lungs), and recurrent sinusitis or pneumonia."
+        ],
+        "related_conditions": [
+            "Lymphedema",
+            "Bronchiectasis",
+            "Pleural effusion",
+            "Chronic sinusitis",
+            "Rheumatoid arthritis (seen in some cases)"
+        ],
+        "differential_diagnosis": [
+            "Onychomycosis (fungal infection, which can also cause yellow, thick nails).",
+            "Nail changes from smoking (staining).",
+            "Psoriasis."
+        ],
+        "pathophysiology": "Hypothesized to be caused by lymphatic vessel dysfunction (e.g., hypoplasia or obstruction), leading to impaired drainage. This results in lymphedema, respiratory issues (due to impaired lymphatic drainage from the lungs), and abnormal nail growth.",
+        "home_remedies": [],
+        "medical_treatments": [
+            "There is no cure; treatment is symptomatic and supportive.",
+            "Nail treatment: Topical or oral vitamin E (has shown some benefit), antifungals if secondarily infected.",
+            "Lymphedema treatment: Compression stockings, manual lymphatic drainage (physical therapy), meticulous skin care.",
+            "Respiratory treatment: Antibiotics for infections, inhalers for bronchiectasis, drainage of pleural effusions (thoracentesis)."
+        ],
+        "diagnostic_tests": [
+            "Diagnosis is clinical, based on the presence of the characteristic nail changes plus lymphedema and/or respiratory symptoms.",
+            "Nail clippings (to rule out fungal infection).",
+            "Chest X-ray or CT scan (to check for bronchiectasis or pleural effusions).",
+            "Pulmonary function tests.",
+            "Lymphoscintigraphy (to evaluate lymphatic drainage)."
+        ],
+        "when_to_see_doctor": [
+            "If nails become yellow and thickened, especially if accompanied by persistent swelling in the legs or a chronic cough."
+        ],
+        "prognosis": "A chronic condition. Symptoms can vary in severity. In some cases (up to 30%), it may resolve spontaneously, but it is often persistent.",
+        "references": [
+            "https://medlineplus.gov/genetics/condition/yellow-nail-syndrome/",
+            "https://my.clevelandclinic.org/health/diseases/22744-yellow-nail-syndrome",
+            "https://dermnetnz.org/topics/yellow-nail-syndrome"
+        ]
+    }
+]
