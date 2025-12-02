@@ -8,7 +8,7 @@
         "weights": {
             "model_prob": 0.45,
             "visual": 0.45,
-            "symptom": 0.10
+            "symptom": 0.1
         },
         "category": "Autoimmune disorder symptom",
         "definition": "Nail changes, such as pitting or roughness, that occur as a manifestation of alopecia areata, an autoimmune disease where the immune system attacks hair follicles and sometimes the nail matrix.",
@@ -19,11 +19,8 @@
             "Having a personal or family history of alopecia areata."
         ],
         "visual_features": [
-            "Nail pitting (small, 'geometric' dents in the nail plate)",
-            "Trachyonychia (rough, 'sandpaper' nails)",
-            "Onycholysis (separation of the nail from the nail bed)",
-            "Onychomadesis (nail shedding)",
-            "Red spots or redness of the lunula (red lunula)"
+            "nail_pitting",
+            "surface_roughness"
         ],
         "associated_symptoms": [
             "Patchy hair loss (alopecia areata)"
@@ -52,6 +49,13 @@
         "references": [
             "https://dermnetnz.org/topics/nail-involvement-in-alopecia-areata",
             "https://www.niams.nih.gov/health-topics/alopecia-areata"
+        ],
+        "visual_feature_descriptions": [
+            "Nail pitting (small, 'geometric' dents in the nail plate)",
+            "Trachyonychia (rough, 'sandpaper' nails)",
+            "Onycholysis (separation of the nail from the nail bed)",
+            "Onychomadesis (nail shedding)",
+            "Red spots or redness of the lunula (red lunula)"
         ]
     },
     {
@@ -82,9 +86,7 @@
             "Severe zinc deficiency"
         ],
         "visual_features": [
-            "Horizontal (transverse) indentations or grooves in the nail plate.",
-            "May affect one or all nails.",
-            "The line will grow out with the nail."
+            "horizontal_lines"
         ],
         "associated_symptoms": [
             "Symptoms of the underlying illness (e.g., fever, fatigue) that caused the lines."
@@ -118,6 +120,11 @@
         "references": [
             "https://www.mayoclinic.org/symptoms/nail-abnormalities/basics/definition/sym-20050842",
             "https://dermnetnz.org/topics/beau-lines"
+        ],
+        "visual_feature_descriptions": [
+            "Horizontal (transverse) indentations or grooves in the nail plate.",
+            "May affect one or all nails.",
+            "The line will grow out with the nail."
         ]
     },
     {
@@ -142,7 +149,7 @@
             "Airway obstruction."
         ],
         "visual_features": [
-            "Blue or purple appearance of the nail bed."
+            "blue_discoloration"
         ],
         "associated_symptoms": [
             "Shortness of breath or difficulty breathing (dyspnea)",
@@ -185,6 +192,9 @@
             "https://medlineplus.gov/ency/article/003215.htm",
             "https://my.clevelandclinic.org/health/symptoms/21525-cyanosis",
             "https://www.mayoclinic.org/symptoms/nail-abnormalities/basics/definition/sym-20050842"
+        ],
+        "visual_feature_descriptions": [
+            "Blue or purple appearance of the nail bed."
         ]
     },
     {
@@ -209,11 +219,7 @@
             "Smoking (due to risk of lung cancer and other lung diseases)."
         ],
         "visual_features": [
-            "Enlargement or bulging of the distal (end) part of the finger or toe.",
-            "Downward curving of the nail plate.",
-            "Loss of the normal angle (Lovibond angle) between the nail bed and the proximal nail fold; the angle becomes greater than 180°.",
-            "Nail bed feels soft or 'spongy' when pressed.",
-            "Schamroth's sign (loss of the diamond-shaped window when the same-finger nails of opposite hands are placed back-to-back)."
+            "nail_clubbing"
         ],
         "associated_symptoms": [
             "Symptoms of the underlying disease (e.g., chronic cough, shortness of breath, fatigue)."
@@ -249,6 +255,13 @@
         "references": [
             "https://medlineplus.gov/ency/article/003282.htm",
             "https://dermnetnz.org/topics/digital-clubbing"
+        ],
+        "visual_feature_descriptions": [
+            "Enlargement or bulging of the distal (end) part of the finger or toe.",
+            "Downward curving of the nail plate.",
+            "Loss of the normal angle (Lovibond angle) between the nail bed and the proximal nail fold; the angle becomes greater than 180°.",
+            "Nail bed feels soft or 'spongy' when pressed.",
+            "Schamroth's sign (loss of the diamond-shaped window when the same-finger nails of opposite hands are placed back-to-back)."
         ]
     },
     {
@@ -257,7 +270,11 @@
             "Darier-White disease",
             "Keratosis follicularis"
         ],
-        "weights": {"model_prob": 0.45, "visual": 0.45, "symptom": 0.1},
+        "weights": {
+            "model_prob": 0.45,
+            "visual": 0.45,
+            "symptom": 0.1
+        },
         "category": "Genetic disorder symptom",
         "definition": "Characteristic nail abnormalities that are a key feature of Darier's disease, a rare genetic skin disorder affecting the skin, nails, and mucous membranes.",
         "causes": [
@@ -267,11 +284,8 @@
             "Having a parent with Darier's disease."
         ],
         "visual_features": [
-            "Red and/or white longitudinal (lengthwise) stripes/bands.",
-            "V-shaped nicks at the free edge (distal) of the nail.",
-            "Longitudinal splitting or fissuring (onychorrhexis).",
-            "Subungual hyperkeratosis (thickening of skin under the nail).",
-            "Fragile, brittle nails."
+            "vertical_lines",
+            "v_shaped_notch"
         ],
         "associated_symptoms": [
             "Warty, greasy, crusted, skin-colored-to-brownish papules on the skin, especially in 'seborrheic' areas (scalp, face, chest, back).",
@@ -311,6 +325,13 @@
         "references": [
             "https://dermnetnz.org/topics/darier-disease",
             "https://medlineplus.gov/genetics/condition/darier-disease/"
+        ],
+        "visual_feature_descriptions": [
+            "Red and/or white longitudinal (lengthwise) stripes/bands.",
+            "V-shaped nicks at the free edge (distal) of the nail.",
+            "Longitudinal splitting or fissuring (onychorrhexis).",
+            "Subungual hyperkeratosis (thickening of skin under the nail).",
+            "Fragile, brittle nails."
         ]
     },
     {
@@ -319,7 +340,11 @@
             "Nail eczema",
             "Dermatitis nails"
         ],
-        "weights": {"model_prob": 0.4, "visual": 0.45, "symptom": 0.15},
+        "weights": {
+            "model_prob": 0.4,
+            "visual": 0.45,
+            "symptom": 0.15
+        },
         "category": "Inflammatory skin condition symptom",
         "definition": "Nail changes, such as pitting and ridges, resulting from eczema (dermatitis) that affects the skin around the nails (nail folds) or the nail matrix.",
         "causes": [
@@ -331,13 +356,9 @@
             "Allergies to substances like nickel or acrylates in nail products (allergic contact dermatitis)."
         ],
         "visual_features": [
-            "Coarse pitting (small dents) of the nail plate.",
-            "Transverse ridges (Beau's lines) from intermittent inflammation.",
-            "Trachyonychia (rough, opaque, 'sandpaper' nails).",
-            "Onychomadesis (nail shedding) in severe flare-ups.",
-            "Onycholysis (nail lifting).",
-            "Cuticle inflammation (paronychia).",
-            "Shiny, 'buffed' nails from chronic rubbing/itching."
+            "nail_pitting",
+            "horizontal_lines",
+            "surface_roughness"
         ],
         "associated_symptoms": [
             "Itchy, red, scaly, or vesicular (blistering) skin on the hands and fingers, especially around the nail folds."
@@ -374,6 +395,15 @@
         "prognosis": "Nail changes tend to improve as the underlying hand eczema is controlled, but it can be a chronic and recurring problem.",
         "references": [
             "https://dermnetnz.org/topics/nail-eczema"
+        ],
+        "visual_feature_descriptions": [
+            "Coarse pitting (small dents) of the nail plate.",
+            "Transverse ridges (Beau's lines) from intermittent inflammation.",
+            "Trachyonychia (rough, opaque, 'sandpaper' nails).",
+            "Onychomadesis (nail shedding) in severe flare-ups.",
+            "Onycholysis (nail lifting).",
+            "Cuticle inflammation (paronychia).",
+            "Shiny, 'buffed' nails from chronic rubbing/itching."
         ]
     },
     {
@@ -382,7 +412,11 @@
             "Lindsay's nails",
             "Apparent leukonychia"
         ],
-        "weights": {"model_prob": 0.45, "visual": 0.45, "symptom": 0.10},
+        "weights": {
+            "model_prob": 0.45,
+            "visual": 0.45,
+            "symptom": 0.1
+        },
         "category": "Symptom of underlying disease",
         "definition": "A nail abnormality where the proximal (bottom) half of the nail is white and opaque, and the distal (top) half is a normal pink or reddish-brown color.",
         "causes": [
@@ -393,10 +427,7 @@
             "Being on hemodialysis."
         ],
         "visual_features": [
-            "The nail is divided into two horizontal zones.",
-            "The proximal (bottom) 40-80% of the nail is opaque white.",
-            "The distal (top) 20-60% is a normal pink or reddish-brown color.",
-            "The demarcation line is sharp."
+            "white_discoloration"
         ],
         "associated_symptoms": [
             "Symptoms of chronic kidney disease (e.g., fatigue, swelling in legs, changes in urination, itching)."
@@ -424,6 +455,12 @@
         "references": [
             "https://dermnetnz.org/topics/half-and-half-nail",
             "https://www.mayoclinic.org/healthy-lifestyle/adult-health/multimedia/nails/sls-20076131?s=4"
+        ],
+        "visual_feature_descriptions": [
+            "The nail is divided into two horizontal zones.",
+            "The proximal (bottom) 40-80% of the nail is opaque white.",
+            "The distal (top) 20-60% is a normal pink or reddish-brown color.",
+            "The demarcation line is sharp."
         ]
     },
     {
@@ -431,7 +468,11 @@
         "alternate_names": [
             "Spoon nails"
         ],
-        "weights": {"model_prob": 0.4, "visual": 0.5, "symptom": 0.1},
+        "weights": {
+            "model_prob": 0.4,
+            "visual": 0.5,
+            "symptom": 0.1
+        },
         "category": "Nail abnormality",
         "definition": "A nail abnormality where the nail plate is thinned, concave (curved inward), and has raised ridges, resembling the shape of a spoon.",
         "causes": [
@@ -449,8 +490,8 @@
             "Genetic predisposition for hemochromatosis."
         ],
         "visual_features": [
-            "Thin, fragile nail plate that is concave or 'scooped out' in the center, like a spoon.",
-            "The nail may be able to hold a drop of water."
+            "spoon_shape",
+            "nail_thickening"
         ],
         "associated_symptoms": [
             "If due to anemia: fatigue, weakness, pale skin, shortness of breath, headache."
@@ -487,6 +528,10 @@
             "https://medlineplus.gov/ency/article/003247.htm",
             "https://dermnetnz.org/topics/koilonychia",
             "https://my.clevelandclinic.org/health/diseases/23204-koilonychia-spoon-nails"
+        ],
+        "visual_feature_descriptions": [
+            "Thin, fragile nail plate that is concave or 'scooped out' in the center, like a spoon.",
+            "The nail may be able to hold a drop of water."
         ]
     },
     {
@@ -496,7 +541,11 @@
             "Leukonychia punctata",
             "Leukonychia totalis"
         ],
-        "weights": {"model_prob": 0.5, "visual": 0.4, "symptom": 0.1},
+        "weights": {
+            "model_prob": 0.5,
+            "visual": 0.4,
+            "symptom": 0.1
+        },
         "category": "Nail abnormality",
         "definition": "A condition characterized by white spots, lines, or total whitening of the nail plate. 'True leukonychia' is a defect in the nail plate itself, caused by abnormal keratinization in the nail matrix.",
         "causes": [
@@ -512,10 +561,7 @@
             "Activities that cause repetitive minor trauma to the nails."
         ],
         "visual_features": [
-            "Leukonychia punctata: Small white dots or spots.",
-            "Leukonychia striata: White transverse (horizontal) lines.",
-            "Leukonychia partialis: Partial whitening of the nail plate.",
-            "Leukonychia totalis: Complete, opaque whitening of the entire nail plate."
+            "white_discoloration"
         ],
         "associated_symptoms": [
             "Usually none, unless related to a systemic illness or fungal infection (which may cause nail thickening)."
@@ -551,6 +597,12 @@
         "references": [
             "https://dermnetnz.org/topics/leukonychia",
             "https://my.clevelandclinic.org/health/diseases/24467-leukonychia"
+        ],
+        "visual_feature_descriptions": [
+            "Leukonychia punctata: Small white dots or spots.",
+            "Leukonychia striata: White transverse (horizontal) lines.",
+            "Leukonychia partialis: Partial whitening of the nail plate.",
+            "Leukonychia totalis: Complete, opaque whitening of the entire nail plate."
         ]
     },
     {
@@ -558,7 +610,11 @@
         "alternate_names": [
             "Muehrcke's nails"
         ],
-        "weights": {"model_prob": 0.5, "visual": 0.4, "symptom": 0.1},
+        "weights": {
+            "model_prob": 0.5,
+            "visual": 0.4,
+            "symptom": 0.1
+        },
         "category": "Symptom of underlying disease",
         "definition": "A form of 'apparent leukonychia' characterized by paired, white, transverse (horizontal) bands that run across the nail bed, not the nail plate. They are associated with low protein levels in the blood.",
         "causes": [
@@ -569,9 +625,7 @@
             "Having conditions that cause severe protein loss or malnutrition."
         ],
         "visual_features": [
-            "Paired, white, horizontal lines that run parallel to the lunula.",
-            "The lines are in the nail bed, so they do *not* move or grow out with the nail.",
-            "The lines temporarily disappear when the nail is pressed down (blanched)."
+            "horizontal_lines"
         ],
         "associated_symptoms": [
             "Symptoms of hypoalbuminemia, such as edema (swelling) in the legs, ankles, and feet."
@@ -603,6 +657,11 @@
         "prognosis": "The lines typically fade and disappear once the serum albumin levels return to normal.",
         "references": [
             "https://dermnetnz.org/topics/muehrcke-lines"
+        ],
+        "visual_feature_descriptions": [
+            "Paired, white, horizontal lines that run parallel to the lunula.",
+            "The lines are in the nail bed, so they do *not* move or grow out with the nail.",
+            "The lines temporarily disappear when the nail is pressed down (blanched)."
         ]
     },
     {
@@ -611,7 +670,11 @@
             "Nail lifting",
             "Nail separation"
         ],
-        "weights": {"model_prob": 0.45, "visual": 0.45, "symptom": 0.10},
+        "weights": {
+            "model_prob": 0.45,
+            "visual": 0.45,
+            "symptom": 0.1
+        },
         "category": "Nail abnormality",
         "definition": "The painless separation or lifting of the nail plate (the hard part of the nail) from the underlying nail bed (the skin underneath).",
         "causes": [
@@ -628,9 +691,7 @@
             "Having psoriasis or thyroid disease."
         ],
         "visual_features": [
-            "The nail plate appears lifted from the nail bed.",
-            "The separated area is opaque and may appear white, yellowish, or gray.",
-            "The area may turn greenish-black if a secondary *Pseudomonas* bacterial infection occurs in the space."
+            "nail_separation"
         ],
         "associated_symptoms": [
             "Usually painless.",
@@ -671,6 +732,11 @@
         "references": [
             "https://my.clevelandclinic.org/health/diseases/22432-onycholysis",
             "https://dermnetnz.org/topics/onycholysis"
+        ],
+        "visual_feature_descriptions": [
+            "The nail plate appears lifted from the nail bed.",
+            "The separated area is opaque and may appear white, yellowish, or gray.",
+            "The area may turn greenish-black if a secondary *Pseudomonas* bacterial infection occurs in the space."
         ]
     },
     {
@@ -678,7 +744,11 @@
         "alternate_names": [
             "Pallor of the nail bed"
         ],
-        "weights": {"model_prob": 0.6, "visual": 0.35, "symptom": 0.05},
+        "weights": {
+            "model_prob": 0.6,
+            "visual": 0.35,
+            "symptom": 0.05
+        },
         "category": "Symptom of underlying disease",
         "definition": "An unusual paleness of the nail beds, which are normally pink. This suggests poor blood flow or a low red blood cell count.",
         "causes": [
@@ -691,8 +761,7 @@
             "Conditions causing blood loss."
         ],
         "visual_features": [
-            "Nail beds appear very pale, white, or light pink.",
-            "May be more noticeable when compared to a healthy person's nail bed."
+            "pale_appearance"
         ],
         "associated_symptoms": [
             "If due to anemia: fatigue, weakness, dizziness, shortness of breath, cold hands and feet, pale skin.",
@@ -726,6 +795,10 @@
         "references": [
             "https://www.mayoclinic.org/symptoms/nail-abnormalities/basics/definition/sym-20050842",
             "https://medlineplus.gov/ency/article/000560.htm"
+        ],
+        "visual_feature_descriptions": [
+            "Nail beds appear very pale, white, or light pink.",
+            "May be more noticeable when compared to a healthy person's nail bed."
         ]
     },
     {
@@ -733,7 +806,11 @@
         "alternate_names": [
             "Spotted lunula"
         ],
-        "weights": {"model_prob": 0.5, "visual": 0.4, "symptom": 0.1},
+        "weights": {
+            "model_prob": 0.5,
+            "visual": 0.4,
+            "symptom": 0.1
+        },
         "category": "Symptom of underlying disease",
         "definition": "Redness or red spotting of the lunula, which is the normally white, half-moon shaped area at the base of the nail.",
         "causes": [
@@ -743,8 +820,7 @@
             "Having an underlying autoimmune or cardiovascular condition."
         ],
         "visual_features": [
-            "The entire lunula appears red instead of white.",
-            "May also appear as red spots within the lunula."
+            "red_areas"
         ],
         "associated_symptoms": [
             "Symptoms of the underlying condition (e.g., joint pain in rheumatoid arthritis, hair loss in alopecia areata)."
@@ -774,12 +850,20 @@
         "references": [
             "https://dermnetnz.org/topics/nail-involvement-in-alopecia-areata",
             "https://dermnetnz.org/topics/systemic-disease-and-the-nails"
+        ],
+        "visual_feature_descriptions": [
+            "The entire lunula appears red instead of white.",
+            "May also appear as red spots within the lunula."
         ]
     },
     {
         "name": "splinter_hemorrhage",
         "alternate_names": [],
-        "weights": {"model_prob": 0.4, "visual": 0.5, "symptom": 0.1},
+        "weights": {
+            "model_prob": 0.4,
+            "visual": 0.5,
+            "symptom": 0.1
+        },
         "category": "Nail abnormality",
         "definition": "Small areas of bleeding (hemorrhage) under the nail plate that look like tiny, thin, vertical lines. They are formed by the rupture of small capillaries in the nail bed.",
         "causes": [
@@ -795,9 +879,8 @@
             "Intravenous drug use (risk factor for endocarditis)."
         ],
         "visual_features": [
-            "Thin, reddish-brown or black lines that run vertically (in the direction of nail growth).",
-            "They are 'splinter'-like in appearance.",
-            "They are in the nail bed and will grow out with the nail."
+            "vertical_lines",
+            "red_areas"
         ],
         "associated_symptoms": [
             "If due to trauma, may have localized tenderness.",
@@ -836,12 +919,21 @@
             "https://medlineplus.gov/ency/article/003283.htm",
             "https://my.clevelandclinic.org/health/diseases/23974-splinter-hemorrhage",
             "https://dermnetnz.org/topics/splinter-haemorrhage"
+        ],
+        "visual_feature_descriptions": [
+            "Thin, reddish-brown or black lines that run vertically (in the direction of nail growth).",
+            "They are 'splinter'-like in appearance.",
+            "They are in the nail bed and will grow out with the nail."
         ]
     },
     {
         "name": "terry_s_nail",
         "alternate_names": [],
-        "weights": {"model_prob": 0.5, "visual": 0.4, "symptom": 0.1},
+        "weights": {
+            "model_prob": 0.5,
+            "visual": 0.4,
+            "symptom": 0.1
+        },
         "category": "Symptom of underlying disease",
         "definition": "A type of 'apparent leukonychia' (discoloration of the nail bed) where most of the nail appears white or 'ground-glass' opaque, with only a narrow, 0.5 to 3 mm pink or brown band at the distal (tip) end.",
         "causes": [
@@ -854,10 +946,8 @@
             "Having liver disease, heart failure, or diabetes."
         ],
         "visual_features": [
-            "Most of the nail (80% or more) is opaque white, often described as 'ground-glass'.",
-            "A narrow pink or brown band is present at the distal tip.",
-            "The lunula (half-moon) may be obscured.",
-            "Typically affects all nails."
+            "white_discoloration",
+            "pale_appearance"
         ],
         "associated_symptoms": [
             "Symptoms of the underlying disease (e.g., jaundice, ascites in liver disease; shortness of breath, edema in heart failure; excessive thirst in diabetes)."
@@ -893,6 +983,12 @@
             "https://www.mayoclinic.org/symptoms/nail-abnormalities/basics/definition/sym-20050842",
             "https://dermnetnz.org/topics/terry-nails",
             "https://my.clevelandclinic.org/health/diseases/24816-terrys-nails"
+        ],
+        "visual_feature_descriptions": [
+            "Most of the nail (80% or more) is opaque white, often described as 'ground-glass'.",
+            "A narrow pink or brown band is present at the distal tip.",
+            "The lunula (half-moon) may be obscured.",
+            "Typically affects all nails."
         ]
     },
     {
@@ -900,7 +996,11 @@
         "alternate_names": [
             "Leukonychia"
         ],
-        "weights": {"model_prob": 0.5, "visual": 0.4, "symptom": 0.1},
+        "weights": {
+            "model_prob": 0.5,
+            "visual": 0.4,
+            "symptom": 0.1
+        },
         "category": "Nail abnormality",
         "definition": "A general term for nails that appear partially or completely white. This is not a single diagnosis but a finding that can be caused by several conditions.",
         "causes": [
@@ -913,7 +1013,8 @@
             "Vary depending on the cause (e.g., trauma, poor circulation, systemic disease, exposure to fungus)."
         ],
         "visual_features": [
-            "Can range from small white dots (punctate leukonychia) to transverse lines (leukonychia striata, Muehrcke's lines) to a mostly white nail (Terry's nails) or a completely opaque white nail plate (leukonychia totalis)."
+            "white_discoloration",
+            "pale_appearance"
         ],
         "associated_symptoms": [
             "Depend on the cause. Fungal infections may cause thickening and crumbling. Systemic disease may have fatigue, swelling, etc."
@@ -950,12 +1051,19 @@
         "references": [
             "https://www.mayoclinic.org/symptoms/nail-abnormalities/basics/definition/sym-20050842",
             "https://dermnetnz.org/topics/leukonychia"
+        ],
+        "visual_feature_descriptions": [
+            "Can range from small white dots (punctate leukonychia) to transverse lines (leukonychia striata, Muehrcke's lines) to a mostly white nail (Terry's nails) or a completely opaque white nail plate (leukonychia totalis)."
         ]
     },
     {
         "name": "yellow_nails",
         "alternate_names": [],
-        "weights": {"model_prob": 0.55, "visual": 0.4, "symptom": 0.05},
+        "weights": {
+            "model_prob": 0.55,
+            "visual": 0.4,
+            "symptom": 0.05
+        },
         "category": "Rare disorder",
         "definition": "A rare disorder characterized by a 'classic triad' of symptoms: 1) yellow, thickened, slow-growing nails, 2) lymphedema (swelling, usually in the legs), and 3) respiratory problems.",
         "causes": [
@@ -966,11 +1074,7 @@
             "Rarely, it has been associated with certain cancers (paraneoplastic syndrome) or autoimmune diseases."
         ],
         "visual_features": [
-            "Nails become thickened, hard, and turn a pale yellow to greenish color.",
-            "Nails grow very slowly (less than 0.5 mm/week) or stop growing.",
-            "Nails become excessively curved (over-curvature).",
-            "Onycholysis (separation from the nail bed) is common.",
-            "Loss of the cuticle."
+            "yellow_discoloration"
         ],
         "associated_symptoms": [
             "Lymphedema: Swelling in the legs or other body parts due to fluid buildup.",
@@ -1011,6 +1115,13 @@
             "https://medlineplus.gov/genetics/condition/yellow-nail-syndrome/",
             "https://my.clevelandclinic.org/health/diseases/22744-yellow-nail-syndrome",
             "https://dermnetnz.org/topics/yellow-nail-syndrome"
+        ],
+        "visual_feature_descriptions": [
+            "Nails become thickened, hard, and turn a pale yellow to greenish color.",
+            "Nails grow very slowly (less than 0.5 mm/week) or stop growing.",
+            "Nails become excessively curved (over-curvature).",
+            "Onycholysis (separation from the nail bed) is common.",
+            "Loss of the cuticle."
         ]
     }
 ]

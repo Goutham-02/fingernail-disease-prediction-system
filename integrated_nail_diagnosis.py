@@ -563,12 +563,20 @@ class GradCAM:
         if self.gradients is None or self.activations is None:
             return None, pred_idx, confidence
         
-        weights = torch.mean(self.gradients, dim=[2, 3], keepdim=True)
-        weighted_activations = weights * self.activations
+        # HiResCAM approach: Element-wise multiplication for better spatial preservation
+        weighted_activations = self.gradients * self.activations
+        
+        # Sum over channels
         heatmap = torch.sum(weighted_activations, dim=1, keepdim=True)
         
         heatmap = F.relu(heatmap)
-        heatmap = (heatmap - heatmap.min()) / (heatmap.max() - heatmap.min() + 1e-8)
+        
+        # Normalize
+        if heatmap.max() > 0:
+            heatmap = (heatmap - heatmap.min()) / (heatmap.max() - heatmap.min() + 1e-8)
+        
+        # Sharpening: Raise to power to suppress background noise and focus on peaks
+        heatmap = torch.pow(heatmap, 3)
         
         return heatmap.squeeze(0), pred_idx, confidence
 
@@ -706,10 +714,43 @@ def apply_heatmap_overlay(img_tensor, heatmap):
     
     heatmap_np = heatmap.cpu().numpy().squeeze()
     heatmap_resized = cv2.resize(heatmap_np, (img.shape[1], img.shape[0]))
-    heatmap_color = cv2.applyColorMap(np.uint8(255 * heatmap_resized), cv2.COLORMAP_JET)
+    
+    # Edge-Guided Refinement:
+    # Multiply heatmap by image gradient to focus on structural details (lines, ridges)
+    gray = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+    sobelx = cv2.Sobel(gray, cv2.CV_64F, 1, 0, ksize=3)
+    sobely = cv2.Sobel(gray, cv2.CV_64F, 0, 1, ksize=3)
+    grad_mag = np.sqrt(sobelx**2 + sobely**2)
+    
+    # Normalize gradient
+    if grad_mag.max() > 0:
+        grad_mag = (grad_mag - grad_mag.min()) / (grad_mag.max() - grad_mag.min() + 1e-8)
+    
+    # Combine: Heatmap * (0.3 + 0.7 * Gradient)
+    # This keeps some base heatmap but heavily emphasizes edges within the hot region
+    refined_heatmap = heatmap_resized * (0.3 + 0.7 * grad_mag)
+    
+    # Re-normalize
+    if refined_heatmap.max() > 0:
+        refined_heatmap = (refined_heatmap - refined_heatmap.min()) / (refined_heatmap.max() - refined_heatmap.min() + 1e-8)
+    
+    # Apply colormap to refined heatmap
+    heatmap_color = cv2.applyColorMap(np.uint8(255 * refined_heatmap), cv2.COLORMAP_JET)
     heatmap_color = cv2.cvtColor(heatmap_color, cv2.COLOR_BGR2RGB)
     
-    superimposed = np.uint8(np.clip(0.6 * img + 0.4 * heatmap_color, 0, 255))
+    # Smart Overlay with higher threshold
+    threshold = 0.25
+    mask = refined_heatmap > threshold
+    
+    superimposed = img.copy()
+    
+    if mask.any():
+        # Create a blended version
+        blended = cv2.addWeighted(img, 0.4, heatmap_color, 0.6, 0)
+        
+        mask_3d = np.stack([mask] * 3, axis=2)
+        np.copyto(superimposed, blended, where=mask_3d)
+    
     return superimposed, img
 
 
