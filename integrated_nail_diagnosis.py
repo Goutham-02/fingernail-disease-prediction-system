@@ -1,8 +1,3 @@
-"""
-Integrated Nail Disease Diagnosis System
-Combines CNN predictions, visual feature analysis, and symptom matching
-"""
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F

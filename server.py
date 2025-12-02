@@ -1,11 +1,14 @@
-from fastapi import FastAPI, File, UploadFile, Form, HTTPException
-from fastapi.responses import JSONResponse
+from fastapi import FastAPI, File, UploadFile, Form, HTTPException, Request
+from fastapi.responses import JSONResponse, HTMLResponse
+from fastapi.templating import Jinja2Templates
+from starlette.staticfiles import StaticFiles
 from typing import List, Optional
 import os
 import uuid
 import json
 import logging
 from pathlib import Path
+import shutil
 
 from dotenv import load_dotenv
 import cloudinary
@@ -81,6 +84,14 @@ except Exception as e:
     DISEASE_DB = []
 
 app = FastAPI(title="Nail Disease Diagnosis API", version="1.0.0")
+
+# Templates and static setup
+templates = Jinja2Templates(directory="templates")
+try:
+    os.makedirs("static", exist_ok=True)
+except Exception:
+    pass
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Initialize the diagnosis system with error handling
 system = None
@@ -273,187 +284,87 @@ async def diagnose(
     Returns:
         JSON with diagnosis results, Grad-CAM visualizations, and AI explanation
     """
-    # Check if system is initialized
-    if system is None:
-        raise HTTPException(
-            status_code=503,
-            detail="Diagnosis system not initialized. Check server logs."
-        )
-    
-    # Validate image count
-    if not images:
-        raise HTTPException(status_code=400, detail="No images provided")
-    
-    if len(images) > 5:
-        raise HTTPException(status_code=400, detail="Maximum 5 images allowed")
+    # ONLY USE IMAGES for prediction. Do not use symptoms.
+    if not images or not (1 <= len(images) <= 5):
+        raise HTTPException(status_code=400, detail="Provide 1-5 images")
 
-    # Ensure temp directory exists with proper permissions
-    try:
-        os.makedirs(TEMP_UPLOAD_DIR, exist_ok=True)
-        # Verify write permission
-        if not os.access(TEMP_UPLOAD_DIR, os.W_OK):
-            raise HTTPException(
-                status_code=500,
-                detail=f"Temp directory not writable: {TEMP_UPLOAD_DIR}. Contact administrator."
-            )
-    except HTTPException:
-        raise
-    except Exception as e:
-        logger.error(f"Failed to prepare temp directory: {e}")
-        raise HTTPException(
-            status_code=500,
-            detail="Server configuration error: cannot create temp directory"
-        )
-
+    os.makedirs("temp_uploads", exist_ok=True)
     saved_paths: List[str] = []
 
     try:
-        # Validate and save uploads
-        for idx, file in enumerate(images):
-            # Check filename
-            if not file.filename:
-                raise HTTPException(
-                    status_code=400,
-                    detail=f"Image {idx + 1} has no filename"
-                )
-            
-            # Check file type
-            if not _is_supported_image(file.content_type, file.filename):
-                raise HTTPException(
-                    status_code=400,
-                    detail=f"Unsupported file type for '{file.filename}'. Use PNG, JPG, or JPEG."
-                )
-            
-            # Read and check file size
-            try:
-                contents = await file.read()
-                if len(contents) == 0:
-                    raise HTTPException(
-                        status_code=400,
-                        detail=f"Image {idx + 1} is empty"
-                    )
-                if len(contents) > MAX_FILE_SIZE:
-                    raise HTTPException(
-                        status_code=400,
-                        detail=f"Image {idx + 1} exceeds maximum size of {MAX_FILE_SIZE // (1024*1024)}MB"
-                    )
-                
-                # Save to disk
-                safe_filename = f"{uuid.uuid4()}_{Path(file.filename).name}"
-                dest = os.path.join(TEMP_UPLOAD_DIR, safe_filename)
-                
-                with open(dest, "wb") as out:
-                    out.write(contents)
-                
-                saved_paths.append(dest)
-                logger.info(f"Saved upload {idx + 1}/{len(images)}: {dest}")
-                
-            except HTTPException:
-                raise
-            except Exception as e:
-                logger.error(f"Error processing file {file.filename}: {e}")
-                raise HTTPException(
-                    status_code=500,
-                    detail=f"Failed to process image: {file.filename}"
-                )
+        # Save all uploaded images
+        for f in images:
+            if not _is_supported_image(f.content_type):
+                raise HTTPException(status_code=400, detail=f"Unsupported file type: {f.content_type}")
+            dest = os.path.join("temp_uploads", f"{uuid.uuid4()}_{os.path.basename(f.filename)}")
+            with open(dest, "wb") as out:
+                shutil.copyfileobj(f.file, out)
+            saved_paths.append(dest)
 
-        # Run diagnosis
-        try:
-            results = system.diagnose(saved_paths, symptoms or "")
-            
-            if not results or not isinstance(results, dict):
-                raise ValueError("Invalid diagnosis results")
-                
-        except Exception as e:
-            logger.error(f"Diagnosis failed: {e}")
-            raise HTTPException(
-                status_code=500,
-                detail=f"Diagnosis processing failed: {str(e)}"
-            )
+        results = system.diagnose(saved_paths, "")
 
-        # -- BEGIN: Filter and prune response for top-3 only, comment out visual_evidence and symptom_match --
-        # Modify aggregated_prediction to only include top_3_candidates (NOT all_candidates) and remove/comment visual_evidence and symptom_match
-        agg = results.get("aggregated_prediction", {})
-        # Remove all_candidates
-        if "all_candidates" in agg:
-            del agg["all_candidates"]
-        # Only keep top_3_candidates
-        agg_top3 = agg.get("top_3_candidates", [])
-        agg["top_3_candidates"] = agg_top3[:3] if agg_top3 else []
-        # Remove or comment out unwanted score_breakdown keys
-        if "score_breakdown" in agg:
-            bd = agg["score_breakdown"]
-            # Comment out visual_evidence and symptom_match
-            if "visual_evidence" in bd:
-                # bd["visual_evidence"] = None  # COMMENTING OUT AS PER REQUEST
-                del bd["visual_evidence"]
-            if "symptom_match" in bd:
-                # bd["symptom_match"] = None  # COMMENTING OUT AS PER REQUEST
-                del bd["symptom_match"]
-        # Re-assign cleaned aggregation
-        results["aggregated_prediction"] = agg
-
-        # Per-image, only return top_predictions (not all_ranked_predictions) and trim to top 3, remove unwanted keys in each candidate
+        # Aggregate across images: choose final class by highest average confidence
+        gradcam_urls: List[str] = []
+        class_to_scores = {}
         for imgres in results.get("individual_predictions", []):
-            # Remove all_ranked_predictions if present
-            if "all_ranked_predictions" in imgres:
-                del imgres["all_ranked_predictions"]
-            # Prune top_predictions to only 3
-            if "top_predictions" in imgres:
-                trimmed = []
-                for cand in imgres["top_predictions"][:3]:
-                    # Remove/comment unwanted visual_score/symptom_score keys (retain only disease and combined_score and model_probability if wanted)
-                    if isinstance(cand, dict):
-                        cand.pop("visual_score", None)  # Remove visual_score
-                        cand.pop("symptom_score", None)  # Remove symptom_score
-                    trimmed.append(cand)
-                imgres["top_predictions"] = trimmed
-        # -- END: Filter/prune response --
-
-        # Upload Grad-CAM images to Cloudinary
-        gradcam_upload_count = 0
-        for item in results.get("individual_predictions", []):
-            local_path = item.get("gradcam_path")
+            name = imgres.get("predicted_class")
+            score = float(imgres.get("confidence") or 0.0)
+            class_to_scores.setdefault(name, []).append(score)
+            # Upload Grad-CAM and collect URL list
+            local_path = imgres.get("gradcam_path")
             if local_path and os.path.exists(local_path):
                 url = _upload_to_cloudinary(local_path)
                 if url:
-                    item["gradcam_url"] = url
-                    gradcam_upload_count += 1
-        
-        logger.info(f"Uploaded {gradcam_upload_count} Grad-CAM images to Cloudinary")
+                    gradcam_urls.append(url)
 
-        # Generate LLM description
-        try:
-            llm_desc = build_llm_description(results, DISEASE_DB, symptoms or "")
-            results["llm_description"] = llm_desc if llm_desc else "AI description unavailable"
-        except Exception as e:
-            logger.error(f"LLM description generation failed: {e}")
-            results["llm_description"] = "AI description unavailable"
+        if not class_to_scores:
+            raise HTTPException(status_code=500, detail="No predictions produced")
 
-        # Convert to serializable format
-        try:
-            serializable_results = convert_to_serializable(results)
-        except Exception as e:
-            logger.error(f"Serialization failed: {e}")
-            # Return raw results as fallback
-            serializable_results = results
+        # Compute average confidence per class
+        best_class = None
+        best_avg = -1.0
+        for cls, scores in class_to_scores.items():
+            avg = sum(scores) / max(1, len(scores))
+            if avg > best_avg:
+                best_avg = avg
+                best_class = cls
 
-        return JSONResponse(content=serializable_results)
-        
-    except HTTPException:
-        raise
-    except Exception as e:
-        logger.error(f"Unexpected error in diagnose endpoint: {e}")
-        raise HTTPException(status_code=500, detail="Internal server error")
-    finally:
-        # Cleanup temp files
-        for path in saved_paths:
+        # Lookup disease info for final class
+        info = None
+        for d in DISEASE_DB:
+            if str(d.get("name", "")).lower() == str(best_class).lower():
+                info = d
+                break
+
+        # Generate one description with Gemini for the final class
+        desc = ""
+        if info:
             try:
-                if os.path.exists(path):
-                    os.remove(path)
-                    logger.debug(f"Cleaned up temp file: {path}")
-            except Exception as e:
-                logger.warning(f"Failed to delete temp file {path}: {e}")
+                prompt = (
+                    "You are a medical information assistant (not a doctor). Using the context below, explain the nail disease in simple, plain language. Ignore any user symptoms. Be concise (120-200 words), include: what it is, common visual signs, related symptoms, when to see a doctor, and general (non-prescriptive) care guidance. Mention aggregated model confidence at the end. Avoid diagnosis claims; use tentative language like 'may indicate', 'could suggest'.\n\n"
+                    f"Predicted condition: {best_class}\n"
+                    f"Aggregated model confidence: {best_avg:.2f}\n"
+                    f"Medical context:\n{json.dumps(info)[:6000]}\n"
+                )
+                model = genai.GenerativeModel("gemini-1.5-flash")
+                resp = model.generate_content(prompt)
+                desc = _extract_gemini_text(resp)
+            except Exception:
+                desc = "AI-generated description unavailable."
+
+        final_payload = {
+            "predicted_class": best_class,
+            "aggregated_score": best_avg,
+            "gradcam_urls": gradcam_urls,
+            "description": desc,
+            "disease_info": info,
+        }
+
+        return JSONResponse(content=convert_to_serializable(final_payload))
+    finally:
+        for p in saved_paths:
+            try: os.remove(p)
+            except: pass
 
 
 @app.get("/health")
@@ -547,6 +458,21 @@ async def root():
             "GET /health": "System health check",
         }
     }
+
+# -------- UI ROUTES --------
+@app.get("/ui", response_class=HTMLResponse)
+async def ui_index(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
+    
+
+@app.get("/ui/diagnose", response_class=HTMLResponse)
+async def ui_diagnose(request: Request):
+    return templates.TemplateResponse("diagnose.html", {"request": request})
+
+
+@app.get("/ui/health", response_class=HTMLResponse)
+async def ui_health(request: Request):
+    return templates.TemplateResponse("health.html", {"request": request})
 
 
 if __name__ == "__main__":

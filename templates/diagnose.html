@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nail Diagnosis</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen p-4 md:p-8">
+  <div class="max-w-5xl mx-auto">
+    <section class="bg-white rounded-xl shadow-sm border p-6">
+      <h1 class="text-2xl font-semibold mb-6 text-gray-800">Nail Diagnosis</h1>
+
+      <!-- ===== FORM ===== -->
+      <form id="diag-form" class="space-y-4" enctype="multipart/form-data">
+        <div>
+          <label class="block text-sm font-medium mb-2 text-gray-700">Upload Images (1–5)</label>
+          <input
+            id="images"
+            type="file"
+            name="images"
+            multiple
+            accept="image/*"
+            class="block w-full text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-sky-50 file:text-sky-700 hover:file:bg-sky-100 cursor-pointer"
+          />
+          <p class="text-xs text-gray-500 mt-2">You can add up to 5 images for analysis.</p>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-2 text-gray-700">Symptoms (optional)</label>
+          <input
+            id="symptoms"
+            type="text"
+            name="symptoms"
+            placeholder="e.g., itching, discoloration"
+            class="block w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent"
+          />
+        </div>
+
+        <div class="flex items-center gap-3 pt-2">
+          <button
+            type="submit"
+            class="px-6 py-2.5 bg-sky-600 text-white rounded-lg hover:bg-sky-700 transition-colors font-medium text-sm shadow-sm"
+          >
+            Run Diagnosis
+          </button>
+          <span id="status" class="text-sm text-gray-500"></span>
+        </div>
+      </form>
+
+      <!-- ===== PREVIEW & RESULTS ===== -->
+      <div id="preview" class="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3"></div>
+      <div id="results" class="mt-8 space-y-4"></div>
+    </section>
+  </div>
+
+  <script>
+    const form = document.getElementById('diag-form');
+    const statusEl = document.getElementById('status');
+    const preview = document.getElementById('preview');
+    const resultsEl = document.getElementById('results');
+    const imgInput = document.getElementById('images');
+
+    imgInput.addEventListener('change', () => {
+      preview.innerHTML = '';
+      const files = Array.from(imgInput.files || []);
+      if (files.length > 0) {
+        files.slice(0, 5).forEach(file => {
+          const url = URL.createObjectURL(file);
+          const wrapper = document.createElement('div');
+          wrapper.className = 'relative group';
+          wrapper.innerHTML = `
+            <img src="${url}" class="w-full h-32 object-cover rounded-lg border-2 border-gray-200 shadow-sm" />
+            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-opacity rounded-lg"></div>
+          `;
+          preview.appendChild(wrapper);
+        });
+      }
+    });
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      resultsEl.innerHTML = '';
+      statusEl.innerHTML =
+        '<span class="flex items-center gap-2"><svg class="animate-spin h-4 w-4 text-sky-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Analyzing images...</span>';
+
+      const fd = new FormData();
+      const imgs = imgInput.files;
+      const files = Array.from(imgs).slice(0, 5);
+      files.forEach(f => fd.append('images', f));
+      fd.append('symptoms', form.querySelector('#symptoms').value || '');
+
+      try {
+        const res = await fetch('/diagnose', { method: 'POST', body: fd });
+        if (!res.ok) throw new Error(await res.text() || 'Request failed');
+        const data = await res.json();
+        renderSingleResult(data);
+        statusEl.innerHTML = '<span class="text-green-600 font-medium">✓ Analysis complete</span>';
+      } catch (err) {
+        console.error(err);
+        statusEl.innerHTML = `<span class="text-red-600 font-medium">✗ Error: ${escapeHtml(err.message)}</span>`;
+      }
+    });
+
+    function renderSingleResult(data) {
+      if (!data || typeof data !== 'object') {
+        resultsEl.innerHTML =
+          '<div class="text-center py-8 text-gray-500 text-sm">No results found.</div>';
+        return;
+      }
+
+      resultsEl.innerHTML = `
+        <h2 class="text-xl font-semibold mb-4 text-gray-800">Diagnosis Result</h2>
+        <div class="border border-gray-200 rounded-xl p-6 shadow-sm bg-white hover:shadow-md transition-shadow">
+          <div class="flex items-start justify-between gap-4 mb-4">
+            <div class="flex-1">
+              <div class="flex items-center gap-3 mb-2">
+                <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-sky-100 text-sky-700 font-semibold text-sm">1</span>
+                <h3 class="text-xl font-semibold text-gray-800">${escapeHtml(formatClassName(data.predicted_class || ''))}</h3>
+              </div>
+              <div class="flex items-center gap-4 text-sm">
+                <span class="text-green-600 font-medium">Confidence: ${(data.aggregated_score * 100).toFixed(1)}%</span>
+                ${data.disease_info?.category ? `<span class="text-gray-500">• ${escapeHtml(data.disease_info.category)}</span>` : ''}
+              </div>
+            </div>
+          </div>
+
+          ${data.gradcam_urls?.length ? renderGradcams(data.gradcam_urls) : ''}
+          ${data.disease_info ? renderDiseaseInfo(data.disease_info) : renderFallback(data)}
+        </div>
+      `;
+    }
+
+    function renderGradcams(urls) {
+      return `
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mb-4">
+          ${urls.map(u => `
+            <a href="${escapeAttr(u)}" target="_blank" class="block group relative">
+              <img src="${escapeAttr(u)}" class="w-full h-40 object-cover rounded-lg border border-gray-200 shadow-sm group-hover:shadow-md transition-shadow" />
+              <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 rounded-lg transition-opacity"></div>
+            </a>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    function renderDiseaseInfo(info) {
+      let html = '';
+
+      if (info.definition) html += `
+        <div class="mb-4 p-4 bg-blue-50 rounded-lg">
+          <h4 class="font-semibold text-gray-800 mb-2 text-sm">Definition</h4>
+          <p class="text-sm text-gray-700 leading-relaxed">${escapeHtml(info.definition)}</p>
+        </div>
+      `;
+
+      const sections = [
+        ['Visual Features', info.visual_features],
+        ['Common Causes', info.causes],
+        ['Medical Treatments', info.medical_treatments],
+      ];
+
+      sections.forEach(([title, items]) => {
+        if (items && items.length)
+          html += `
+            <div class="mb-4">
+              <h4 class="font-semibold text-gray-800 mb-2 text-sm">${title}</h4>
+              <ul class="space-y-1">
+                ${items.map(i => `<li class="text-sm text-gray-700 flex items-start gap-2"><span class="text-sky-600 mt-1">•</span><span>${escapeHtml(i)}</span></li>`).join('')}
+              </ul>
+            </div>
+          `;
+      });
+
+      if (info.when_to_see_doctor?.length)
+        html += `
+          <div class="mb-4 p-4 bg-amber-50 rounded-lg border border-amber-200">
+            <h4 class="font-semibold text-amber-900 mb-2 text-sm flex items-center gap-2">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+              When to See a Doctor
+            </h4>
+            <ul class="space-y-1">
+              ${info.when_to_see_doctor.map(w => `<li class="text-sm text-gray-700 flex items-start gap-2"><span class="text-amber-600 mt-1">•</span><span>${escapeHtml(w)}</span></li>`).join('')}
+            </ul>
+          </div>
+        `;
+
+      if (info.references?.length)
+        html += `
+          <details class="mt-4">
+            <summary class="cursor-pointer text-sm font-medium text-gray-700 hover:text-gray-900">References</summary>
+            <ul class="mt-2 space-y-1 pl-4">
+              ${info.references.map(r => `<li class="text-xs text-blue-600 hover:underline"><a href="${escapeAttr(r)}" target="_blank">${escapeHtml(r)}</a></li>`).join('')}
+            </ul>
+          </details>
+        `;
+
+      return html;
+    }
+
+    function renderFallback(item) {
+      return `
+        <div class="bg-gray-50 rounded-lg p-4 text-sm text-gray-600">
+          ${escapeHtml(item.description || 'No description available.')}
+        </div>
+      `;
+    }
+
+    function formatClassName(name) {
+      return name
+        .split('_')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+    }
+
+    function escapeHtml(s) {
+      return String(s)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;');
+    }
+
+    function escapeAttr(s) {
+      return escapeHtml(s);
+    }
+  </script>
+</body>
+</html>

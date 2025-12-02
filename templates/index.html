@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="grid gap-6 md:grid-cols-2">
+  <div class="bg-white rounded-xl shadow-sm border p-6">
+    <h1 class="text-xl font-semibold mb-2">Welcome</h1>
+    <p class="text-gray-600">Upload up to 5 fingernail images and get the top-3 predicted conditions with Grad-CAM visualizations, an AI explanation, and full disease info.</p>
+    <div class="mt-4">
+      <a href="/ui/diagnose" class="inline-flex items-center px-4 py-2 bg-sky-600 text-white rounded-lg hover:bg-sky-700">Go to Diagnose</a>
+    </div>
+  </div>
+  <div class="bg-white rounded-xl shadow-sm border p-6">
+    <h2 class="text-lg font-semibold mb-2">API Endpoints</h2>
+    <ul class="text-sm list-disc pl-5 space-y-1 text-gray-700">
+      <li><code>POST /diagnose</code> – Upload images (multipart/form-data)</li>
+      <li><code>GET /health</code> – Health check</li>
+      <li><code>GET /</code> – API info</li>
+    </ul>
+    <h3 class="text-sm font-semibold mt-4">Quick cURL</h3>
+    <pre class="bg-gray-100 rounded p-3 text-xs overflow-x-auto"><code>curl -X POST "http://localhost:8000/diagnose" ^
+  -F "images=@dummy_dataset/1.PNG" ^
+  -F "images=@dummy_dataset/10.PNG" ^
+  -F "symptoms=ignored here"</code></pre>
+  </div>
+</section>
+{% endblock %}
+
+

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="bg-white rounded-xl shadow-sm border p-6">
+  <h1 class="text-xl font-semibold mb-4">Health</h1>
+  <div class="flex items-center gap-3 mb-4">
+    <button id="refresh" class="px-3 py-2 bg-sky-600 text-white rounded hover:bg-sky-700 text-sm">Refresh</button>
+    <span id="status" class="text-sm text-gray-500"></span>
+  </div>
+  <div id="health" class="grid gap-3"></div>
+</section>
+
+<script>
+  const refreshBtn = document.getElementById('refresh');
+  const statusEl = document.getElementById('status');
+  const container = document.getElementById('health');
+
+  refreshBtn.addEventListener('click', load);
+  load();
+
+  async function load() {
+    statusEl.textContent = 'Loading...';
+    container.innerHTML = '';
+    try {
+      const res = await fetch('/health');
+      const data = await res.json();
+      statusEl.textContent = `Status: ${data.status}`;
+      render(data);
+    } catch (e) {
+      statusEl.textContent = 'Failed to load.';
+    }
+  }
+
+  function render(data) {
+    const grid = document.createElement('div');
+    grid.className = 'grid sm:grid-cols-2 gap-3';
+    const entries = Object.entries(data || {});
+    entries.forEach(([k, v]) => {
+      const card = document.createElement('div');
+      card.className = 'border rounded p-3 text-sm';
+      card.innerHTML = `<div class="text-gray-500">${escapeHtml(k)}</div><div class="font-medium">${escapeHtml(format(v))}</div>`;
+      grid.appendChild(card);
+    });
+    container.appendChild(grid);
+  }
+
+  function format(v) {
+    if (typeof v === 'boolean') return v ? 'true' : 'false';
+    if (typeof v === 'object') return JSON.stringify(v);
+    return String(v);
+  }
+  function escapeHtml(s) {
+    return String(s)
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;');
+  }
+</script>
+{% endblock %}
+
+

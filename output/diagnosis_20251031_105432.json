@@ -1,0 +1,692 @@
+{
+  "metadata": {
+    "timestamp": "20251031_105432",
+    "num_images": 2,
+    "symptoms_provided": "",
+    "parsed_symptoms": {}
+  },
+  "individual_predictions": [
+    {
+      "image_id": 1,
+      "image_path": "temp_uploads\\e1e0f8c5-eb1b-4235-8703-d4e90ca1e9c1_1.PNG",
+      "gradcam_path": "output/gradcam\\gradcam_img1_splinter_hemorrhage.png",
+      "predicted_class": "splinter_hemorrhage",
+      "confidence": 0.9783947467803955,
+      "probabilities": {
+        "aloperia_areata": 0.002623921725898981,
+        "beau_s_lines": 4.4179472752148286e-05,
+        "bluish_nail": 1.346327735518571e-05,
+        "clubbing": 0.00026426129625178874,
+        "darier_s_disease": 0.0005484650027938187,
+        "eczema": 0.0018944304902106524,
+        "half_and_half_nails": 0.0007083571399562061,
+        "koilonychia": 9.89312247838825e-05,
+        "leukonychia": 3.1263498385669664e-05,
+        "muehrcke_s_lines": 0.011346152052283287,
+        "onycholysis": 6.695330375805497e-05,
+        "pale_nail": 0.00038184059667401016,
+        "red_lunula": 0.0006036916165612638,
+        "splinter_hemorrhage": 0.9783947467803955,
+        "terry_s_nail": 0.00033620966132730246,
+        "white_nail": 0.0023490048479288816,
+        "yellow_nails": 0.00029404074302874506
+      },
+      "visual_features": {
+        "nail_pitting": {
+          "present": false,
+          "count": 1,
+          "score": 0.1
+        },
+        "horizontal_lines": {
+          "present": true,
+          "count": 4,
+          "score": 0.8
+        },
+        "vertical_lines": {
+          "present": true,
+          "count": 29,
+          "score": 1.0
+        },
+        "white_discoloration": {
+          "present": false,
+          "white_frac": 0.029635155296331456,
+          "score": 0.08890546588899437
+        },
+        "yellow_discoloration": {
+          "present": false,
+          "yellow_frac": 0.004882680048823489,
+          "score": 0.024413400244117443
+        },
+        "blue_discoloration": {
+          "present": false,
+          "blue_frac": 0.0,
+          "score": 0.0
+        },
+        "pale_appearance": {
+          "present": false,
+          "mean_value": 186.8563678285637,
+          "mean_saturation": 68.17197884171979,
+          "score": 0.0
+        },
+        "red_areas": {
+          "present": true,
+          "red_frac": 0.49064152990608256,
+          "score": 1.0
+        },
+        "nail_thickening": {
+          "present": true,
+          "edge_density": 0.11053845110530955,
+          "score": 0.5526922555265478
+        },
+        "nail_separation": {
+          "present": false,
+          "solidity": 0.9199380165283316,
+          "score": 0.08006198347166837
+        },
+        "surface_roughness": {
+          "present": true,
+          "texture_strength": 53.07576620748044,
+          "score": 1.0
+        },
+        "nail_clubbing": {
+          "present": false,
+          "aspect_ratio": 0.8197349290463974,
+          "score": 0.0
+        },
+        "spoon_shape": {
+          "present": false,
+          "center_depth": -65.62215274061543,
+          "score": -1.6405538185153858
+        },
+        "v_shaped_notch": {
+          "present": false,
+          "v_strength": 0,
+          "score": 0.0
+        }
+      },
+      "top_predictions": [
+        {
+          "disease": "splinter_hemorrhage",
+          "combined_score": 0.3913578987121582,
+          "model_probability": 0.9783947467803955,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "muehrcke_s_lines",
+          "combined_score": 0.2616730760261416,
+          "model_probability": 0.011346152052283287,
+          "visual_score": 0.6399999999999999,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "aloperia_areata",
+          "combined_score": 0.03538076477665454,
+          "model_probability": 0.002623921725898981,
+          "visual_score": 0.076,
+          "symptom_score": 0.0
+        }
+      ],
+      "all_ranked_predictions": [
+        {
+          "disease": "splinter_hemorrhage",
+          "combined_score": 0.3913578987121582,
+          "model_probability": 0.9783947467803955,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "muehrcke_s_lines",
+          "combined_score": 0.2616730760261416,
+          "model_probability": 0.011346152052283287,
+          "visual_score": 0.6399999999999999,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "aloperia_areata",
+          "combined_score": 0.03538076477665454,
+          "model_probability": 0.002623921725898981,
+          "visual_score": 0.076,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "white_nail",
+          "combined_score": 0.0011745024239644408,
+          "model_probability": 0.0023490048479288816,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "eczema",
+          "combined_score": 0.000757772196084261,
+          "model_probability": 0.0018944304902106524,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "half_and_half_nails",
+          "combined_score": 0.00031876071298029277,
+          "model_probability": 0.0007083571399562061,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "red_lunula",
+          "combined_score": 0.0003018458082806319,
+          "model_probability": 0.0006036916165612638,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "darier_s_disease",
+          "combined_score": 0.00024680925125721844,
+          "model_probability": 0.0005484650027938187,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "pale_nail",
+          "combined_score": 0.0002291043580044061,
+          "model_probability": 0.00038184059667401016,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "terry_s_nail",
+          "combined_score": 0.00016810483066365123,
+          "model_probability": 0.00033620966132730246,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "yellow_nails",
+          "combined_score": 0.0001617224086658098,
+          "model_probability": 0.00029404074302874506,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "clubbing",
+          "combined_score": 0.0001057045185007155,
+          "model_probability": 0.00026426129625178874,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "koilonychia",
+          "combined_score": 3.9572489913553004e-05,
+          "model_probability": 9.89312247838825e-05,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "onycholysis",
+          "combined_score": 3.0128986691124737e-05,
+          "model_probability": 6.695330375805497e-05,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "beau_s_lines",
+          "combined_score": 2.2089736376074143e-05,
+          "model_probability": 4.4179472752148286e-05,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "leukonychia",
+          "combined_score": 1.5631749192834832e-05,
+          "model_probability": 3.1263498385669664e-05,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "bluish_nail",
+          "combined_score": 8.077966413111426e-06,
+          "model_probability": 1.346327735518571e-05,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        }
+      ]
+    },
+    {
+      "image_id": 2,
+      "image_path": "temp_uploads\\9de04260-b098-47b8-b7ac-c2c3550bdea1_12.PNG",
+      "gradcam_path": "output/gradcam\\gradcam_img2_splinter_hemorrhage.png",
+      "predicted_class": "splinter_hemorrhage",
+      "confidence": 0.9991149306297302,
+      "probabilities": {
+        "aloperia_areata": 0.00016498213517479599,
+        "beau_s_lines": 3.268671662226552e-06,
+        "bluish_nail": 2.199292794102803e-06,
+        "clubbing": 1.567720937600825e-05,
+        "darier_s_disease": 4.900565181742422e-05,
+        "eczema": 0.0003298278898000717,
+        "half_and_half_nails": 2.089210283884313e-06,
+        "koilonychia": 6.263043178478256e-05,
+        "leukonychia": 3.0530893582181307e-06,
+        "muehrcke_s_lines": 3.571229535737075e-05,
+        "onycholysis": 2.4455144739476964e-05,
+        "pale_nail": 5.178158971830271e-06,
+        "red_lunula": 2.434553152852459e-06,
+        "splinter_hemorrhage": 0.9991149306297302,
+        "terry_s_nail": 3.07088203044259e-06,
+        "white_nail": 0.00013949244748800993,
+        "yellow_nails": 4.205610093777068e-05
+      },
+      "visual_features": {
+        "nail_pitting": {
+          "present": false,
+          "count": 1,
+          "score": 0.1
+        },
+        "horizontal_lines": {
+          "present": true,
+          "count": 5,
+          "score": 1.0
+        },
+        "vertical_lines": {
+          "present": true,
+          "count": 10,
+          "score": 1.0
+        },
+        "white_discoloration": {
+          "present": false,
+          "white_frac": 0.006442425064419882,
+          "score": 0.019327275193259646
+        },
+        "yellow_discoloration": {
+          "present": false,
+          "yellow_frac": 0.01200325512002441,
+          "score": 0.06001627560012205
+        },
+        "blue_discoloration": {
+          "present": false,
+          "blue_frac": 0.0,
+          "score": 0.0
+        },
+        "pale_appearance": {
+          "present": false,
+          "mean_value": 164.91007730910079,
+          "mean_saturation": 37.98453817984538,
+          "score": 0.0
+        },
+        "red_areas": {
+          "present": false,
+          "red_frac": 0.04435101044348003,
+          "score": 0.3548080835478402
+        },
+        "nail_thickening": {
+          "present": false,
+          "edge_density": 0.049776210497728346,
+          "score": 0.24888105248864173
+        },
+        "nail_separation": {
+          "present": false,
+          "solidity": 0.9710706530810281,
+          "score": 0.028929346918971865
+        },
+        "surface_roughness": {
+          "present": true,
+          "texture_strength": 35.41421832788319,
+          "score": 1.0
+        },
+        "nail_clubbing": {
+          "present": false,
+          "aspect_ratio": 0.928809011126203,
+          "score": 0.0
+        },
+        "spoon_shape": {
+          "present": false,
+          "center_depth": 12.318661788438959,
+          "score": 0.30796654471097396
+        },
+        "v_shaped_notch": {
+          "present": false,
+          "v_strength": 1,
+          "score": 0.3333333333333333
+        }
+      },
+      "top_predictions": [
+        {
+          "disease": "splinter_hemorrhage",
+          "combined_score": 0.39964597225189213,
+          "model_probability": 0.9991149306297302,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "muehrcke_s_lines",
+          "combined_score": 0.3200178561476787,
+          "model_probability": 3.571229535737075e-05,
+          "visual_score": 0.7999999999999999,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "aloperia_areata",
+          "combined_score": 0.03427424196082866,
+          "model_probability": 0.00016498213517479599,
+          "visual_score": 0.076,
+          "symptom_score": 0.0
+        }
+      ],
+      "all_ranked_predictions": [
+        {
+          "disease": "splinter_hemorrhage",
+          "combined_score": 0.39964597225189213,
+          "model_probability": 0.9991149306297302,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "muehrcke_s_lines",
+          "combined_score": 0.3200178561476787,
+          "model_probability": 3.571229535737075e-05,
+          "visual_score": 0.7999999999999999,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "aloperia_areata",
+          "combined_score": 0.03427424196082866,
+          "model_probability": 0.00016498213517479599,
+          "visual_score": 0.076,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "eczema",
+          "combined_score": 0.0001319311559200287,
+          "model_probability": 0.0003298278898000717,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "white_nail",
+          "combined_score": 6.974622374400496e-05,
+          "model_probability": 0.00013949244748800993,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "koilonychia",
+          "combined_score": 2.5052172713913026e-05,
+          "model_probability": 6.263043178478256e-05,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "yellow_nails",
+          "combined_score": 2.3130855515773875e-05,
+          "model_probability": 4.205610093777068e-05,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "darier_s_disease",
+          "combined_score": 2.20525433178409e-05,
+          "model_probability": 4.900565181742422e-05,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "onycholysis",
+          "combined_score": 1.1004815132764635e-05,
+          "model_probability": 2.4455144739476964e-05,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "clubbing",
+          "combined_score": 6.2708837504033004e-06,
+          "model_probability": 1.567720937600825e-05,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "pale_nail",
+          "combined_score": 3.106895383098163e-06,
+          "model_probability": 5.178158971830271e-06,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "beau_s_lines",
+          "combined_score": 1.634335831113276e-06,
+          "model_probability": 3.268671662226552e-06,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "terry_s_nail",
+          "combined_score": 1.535441015221295e-06,
+          "model_probability": 3.07088203044259e-06,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "leukonychia",
+          "combined_score": 1.5265446791090653e-06,
+          "model_probability": 3.0530893582181307e-06,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "bluish_nail",
+          "combined_score": 1.3195756764616818e-06,
+          "model_probability": 2.199292794102803e-06,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "red_lunula",
+          "combined_score": 1.2172765764262294e-06,
+          "model_probability": 2.434553152852459e-06,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        },
+        {
+          "disease": "half_and_half_nails",
+          "combined_score": 9.401446277479409e-07,
+          "model_probability": 2.089210283884313e-06,
+          "visual_score": 0.0,
+          "symptom_score": 0.0
+        }
+      ]
+    }
+  ],
+  "aggregated_prediction": {
+    "predicted_disease": "splinter_hemorrhage",
+    "aggregated_score": 0.395545354358442,
+    "score_breakdown": {
+      "model_probability": 0.9887548387050629,
+      "visual_evidence": 0.0,
+      "symptom_match": 0.0
+    },
+    "top_3_candidates": [
+      {
+        "disease": "splinter_hemorrhage",
+        "aggregated_score": 0.395545354358442,
+        "avg_model_probability": 0.9887548387050629,
+        "avg_visual_score": 0.0,
+        "avg_symptom_score": 0.0
+      },
+      {
+        "disease": "muehrcke_s_lines",
+        "aggregated_score": 0.29115113051969516,
+        "avg_model_probability": 0.005690932173820329,
+        "avg_visual_score": 0.72,
+        "avg_symptom_score": 0.0
+      },
+      {
+        "disease": "aloperia_areata",
+        "aggregated_score": 0.03482170616509869,
+        "avg_model_probability": 0.0013944519305368885,
+        "avg_visual_score": 0.076,
+        "avg_symptom_score": 0.0
+      }
+    ],
+    "all_candidates": [
+      {
+        "disease": "splinter_hemorrhage",
+        "aggregated_score": 0.395545354358442,
+        "avg_model_probability": 0.9887548387050629,
+        "avg_visual_score": 0.0,
+        "avg_symptom_score": 0.0
+      },
+      {
+        "disease": "muehrcke_s_lines",
+        "aggregated_score": 0.29115113051969516,
+        "avg_model_probability": 0.005690932173820329,
+        "avg_visual_score": 0.72,
+        "avg_symptom_score": 0.0
+      },
+      {
+        "disease": "aloperia_areata",
+        "aggregated_score": 0.03482170616509869,
+        "avg_model_probability": 0.0013944519305368885,
+        "avg_visual_score": 0.076,
+        "avg_symptom_score": 0.0
+      },
+      {
+        "disease": "white_nail",
+        "aggregated_score": 0.000616336548409814,
+        "avg_model_probability": 0.0012442486477084458,
+        "avg_visual_score": 0.0,
+        "avg_symptom_score": 0.0
+      },
+      {
+        "disease": "eczema",
+        "aggregated_score": 0.00044157291828170143,
+        "avg_model_probability": 0.001112129190005362,
+        "avg_visual_score": 0.0,
+        "avg_symptom_score": 0.0
+      },
+      {
+        "disease": "half_and_half_nails",
+        "aggregated_score": 0.00015818537910886618,
+        "avg_model_probability": 0.0003552231751200452,
+        "avg_visual_score": 0.0,
+        "avg_symptom_score": 0.0
+      },
+      {
+        "disease": "red_lunula",
+        "aggregated_score": 0.000149956561148398,
+        "avg_model_probability": 0.00030306308485705813,
+        "avg_visual_score": 0.0,
+        "avg_symptom_score": 0.0
+      },
+      {
+        "disease": "darier_s_disease",
+        "aggregated_score": 0.00013325340545825015,
+        "avg_model_probability": 0.00029873532730562147,
+        "avg_visual_score": 0.0,
+        "avg_symptom_score": 0.0
+      },
+      {
+        "disease": "pale_nail",
+        "aggregated_score": 0.00011492163469439006,
+        "avg_model_probability": 0.00019350937782292021,
+        "avg_visual_score": 0.0,
+        "avg_symptom_score": 0.0
+      },
+      {
+        "disease": "yellow_nails",
+        "aggregated_score": 9.170055617620879e-05,
+        "avg_model_probability": 0.00016804842198325787,
+        "avg_visual_score": 0.0,
+        "avg_symptom_score": 0.0
+      },
+      {
+        "disease": "terry_s_nail",
+        "aggregated_score": 8.394748522852832e-05,
+        "avg_model_probability": 0.00016964027167887252,
+        "avg_visual_score": 0.0,
+        "avg_symptom_score": 0.0
+      },
+      {
+        "disease": "clubbing",
+        "aggregated_score": 5.546677211931864e-05,
+        "avg_model_probability": 0.0001399692528138985,
+        "avg_visual_score": 0.0,
+        "avg_symptom_score": 0.0
+      },
+      {
+        "disease": "koilonychia",
+        "aggregated_score": 3.223625980569205e-05,
+        "avg_model_probability": 8.078082828433253e-05,
+        "avg_visual_score": 0.0,
+        "avg_symptom_score": 0.0
+      },
+      {
+        "disease": "onycholysis",
+        "aggregated_score": 2.046671005965298e-05,
+        "avg_model_probability": 4.570422424876597e-05,
+        "avg_visual_score": 0.0,
+        "avg_symptom_score": 0.0
+      },
+      {
+        "disease": "beau_s_lines",
+        "aggregated_score": 1.1754871041409063e-05,
+        "avg_model_probability": 2.372407220718742e-05,
+        "avg_visual_score": 0.0,
+        "avg_symptom_score": 0.0
+      },
+      {
+        "disease": "leukonychia",
+        "aggregated_score": 8.505250306235947e-06,
+        "avg_model_probability": 1.7158293871943897e-05,
+        "avg_visual_score": 0.0,
+        "avg_symptom_score": 0.0
+      },
+      {
+        "disease": "bluish_nail",
+        "aggregated_score": 4.663364089903859e-06,
+        "avg_model_probability": 7.831285074644256e-06,
+        "avg_visual_score": 0.0,
+        "avg_symptom_score": 0.0
+      }
+    ]
+  },
+  "disease_information": {
+    "name": "splinter_hemorrhage",
+    "category": "Nail abnormality",
+    "definition": "Small areas of bleeding (hemorrhage) under the nail plate that look like tiny, thin, vertical lines. They are formed by the rupture of small capillaries in the nail bed.",
+    "causes": [
+      "Trauma (injury) to the nail (most common cause, e.g., hitting the finger).",
+      "Infective endocarditis (a serious infection of the heart valves).",
+      "Nail psoriasis.",
+      "Vasculitis (inflammation of blood vessels).",
+      "Systemic lupus erythematosus (SLE)."
+    ],
+    "visual_features": [
+      "Thin, reddish-brown or black lines that run vertically (in the direction of nail growth).",
+      "They are 'splinter'-like in appearance.",
+      "They are in the nail bed and will grow out with the nail."
+    ],
+    "associated_symptoms": [
+      "If due to trauma, may have localized tenderness.",
+      "If due to endocarditis, may have fever, chills, fatigue, heart murmur, Osler nodes, Janeway lesions."
+    ],
+    "related_conditions": [
+      "Trauma (most common)",
+      "Infective endocarditis",
+      "Nail psoriasis",
+      "Vasculitis",
+      "Systemic lupus erythematosus (SLE)",
+      "Rheumatoid arthritis"
+    ],
+    "medical_treatments": [
+      "If endocarditis is suspected, urgent medical evaluation and intravenous antibiotics are required.",
+      "Treatment of other underlying conditions (e.g., psoriasis)."
+    ],
+    "when_to_see_doctor": [
+      "If they appear on multiple nails without any history of trauma.",
+      "If accompanied by fever, chills, or other signs of systemic illness (this is a medical emergency)."
+    ],
+    "prognosis": "Traumatic hemorrhages are harmless. If due to endocarditis, prognosis depends on rapid diagnosis and treatment of the heart infection.",
+    "references": [
+      "https://medlineplus.gov/ency/article/003283.htm",
+      "https://my.clevelandclinic.org/health/diseases/23974-splinter-hemorrhage",
+      "https://dermnetnz.org/topics/splinter-haemorrhage"
+    ]
+  }
+}
