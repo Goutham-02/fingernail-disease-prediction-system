@@ -1,5 +1,5 @@
 from fastapi import FastAPI, File, UploadFile, Form, HTTPException, Request
-from fastapi.responses import JSONResponse, HTMLResponse
+from fastapi.responses import JSONResponse, HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from starlette.staticfiles import StaticFiles
 from typing import List, Optional
@@ -571,28 +571,6 @@ async def health():
     except Exception as exc:
         logger.error(f"Health check failed: {exc}")
         return JSONResponse(
-            status_code=500,
-            content={"status": "error", "detail": str(exc)}
-        )
-
-
-@app.get("/")
-async def root():
-    """Root endpoint with API information."""
-    return {
-        "name": "Nail Disease Diagnosis API",
-        "version": "1.0.0",
-        "endpoints": {
-            "POST /diagnose": "Upload images for diagnosis",
-            "GET /health": "System health check",
-        }
-    }
-
-# -------- UI ROUTES --------
-@app.get("/ui", response_class=HTMLResponse)
-async def ui_index(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
-    
 
 @app.get("/ui/diagnose", response_class=HTMLResponse)
 async def ui_diagnose(request: Request):

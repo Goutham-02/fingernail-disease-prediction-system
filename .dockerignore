@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# Output directories (regenerated)
+output/
+temp_uploads/
+gradcam_images/
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Environment variables (use secrets instead)
+.env
+.env.local
+
+# CI/CD
+.github/
+
+# Documentation
+README.md
+*.md
+
+# Logs
+*.log
+
+# Testing
+.pytest_cache/
+tests/
+
+# Temporary files
+*.tmp
+*.bak
+fix_*.py
+patch_*.py
+create_*.py
+
+# System files
+.DS_Store
+Thumbs.db
