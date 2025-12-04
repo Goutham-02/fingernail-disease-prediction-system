@@ -571,6 +571,20 @@ async def health():
     except Exception as exc:
         logger.error(f"Health check failed: {exc}")
         return JSONResponse(
+            status_code=500,
+            content={"status": "error", "detail": str(exc)}
+        )
+
+@app.get("/")
+async def root():
+    """Root endpoint redirecting to UI."""
+    return RedirectResponse(url="/ui/diagnose")
+
+
+@app.get("/ui", response_class=HTMLResponse)
+async def ui_index(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
+
 
 @app.get("/ui/diagnose", response_class=HTMLResponse)
 async def ui_diagnose(request: Request):
