@@ -5,7 +5,7 @@ python-multipart==0.0.6
 pydantic==2.5.0
 
 # Deep Learning
-torch==2.1.0
+torch
 torchvision==0.16.0
 
 # Computer Vision
