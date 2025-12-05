@@ -9,6 +9,7 @@ import json
 import logging
 from pathlib import Path
 import shutil
+import PIL.Image
 
 from dotenv import load_dotenv
 import cloudinary
@@ -297,6 +298,51 @@ CRITICAL: Return ONLY the JSON object, no additional text or markdown formatting
         logger.error(f"Error in LLM refinement: {e}")
         return None
 
+def analyze_healthy_nail(image_path: str) -> dict:
+    """
+    Use Gemini Vision to check if the nail is healthy.
+    Returns dict: {is_healthy: bool, confidence: float, reasoning: str}
+    """
+    try:
+        if not os.getenv("GEMINI_API_KEY"):
+            return None
+            
+        model = genai.GenerativeModel("gemini-1.5-flash")
+        
+        # Load image
+        if not os.path.exists(image_path):
+            return None
+            
+        img = PIL.Image.open(image_path)
+        
+        prompt = """
+        Analyze this image of a fingernail. 
+        Determine if it appears to be a HEALTHY, NORMAL nail or if it shows signs of disease/abnormality.
+        Ignore minor grooming issues (like uneven cuticles or dirt). Focus on medical abnormalities (pitting, discoloration, ridges, separation, clubbing).
+        
+        Return JSON ONLY:
+        {
+            "is_healthy": boolean,
+            "confidence": float (0.0 to 1.0),
+            "reasoning": "brief explanation"
+        }
+        """
+        
+        response = model.generate_content([prompt, img])
+        text = _extract_gemini_text(response)
+        
+        # Clean json
+        text = text.strip()
+        if text.startswith("```"):
+            lines = text.split("\n")
+            text = "\n".join(lines[1:-1]) if len(lines) > 2 else text
+            
+        return json.loads(text)
+    except Exception as e:
+        logger.error(f"Error in analyze_healthy_nail: {e}")
+        return None
+
+
 def build_llm_description(results: dict, disease_db: list, symptoms: str) -> str:
     """Generate LLM description using Gemini with RAG."""
     try:
@@ -428,13 +474,30 @@ async def diagnose(
                 if url:
                     gradcam_urls.append(url)
 
+        # Check for Healthy Nail (if confidence is low or no symptoms)
+        # Thresholds: Check if CNN confidence < 0.85 OR no symptoms provided
+        is_healthy_check = False
+        if cnn_score < 0.85 or not symptoms or not symptoms.strip():
+            logger.info("Checking for healthy nail (low confidence or no symptoms)...")
+            # Use the first image for healthy check
+            try:
+                healthy_result = analyze_healthy_nail(saved_paths[0])
+                if healthy_result and healthy_result.get("is_healthy") and healthy_result.get("confidence", 0) > 0.8:
+                    is_healthy_check = True
+                    final_prediction = "Healthy / Normal"
+                    final_score = healthy_result.get("confidence")
+                    final_reasoning = healthy_result.get("reasoning")
+                    logger.info(f"Identified as Healthy/Normal with confidence {final_score}")
+            except Exception as e:
+                logger.error(f"Error in healthy nail check: {e}")
+
         # LLM REFINEMENT: Use LLM to refine prediction if symptoms are provided
         llm_refined = None
         final_prediction = cnn_prediction
         final_score = cnn_score
         final_reasoning = None
         
-        if symptoms and symptoms.strip() and len(top_3_candidates) >= 3:
+        if not is_healthy_check and symptoms and symptoms.strip() and len(top_3_candidates) >= 3:
             logger.info(f"Attempting LLM refinement with symptoms: {symptoms[:50]}...")
             llm_refined = llm_refine_prediction(top_3_candidates, symptoms, DISEASE_DB)
             
