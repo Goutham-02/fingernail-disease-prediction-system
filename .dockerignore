@@ -1,55 +1,25 @@
-# Python
+# Python cache
 __pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
+*.pyc
+*.pyo
 
-# Virtual environments
-venv/
-env/
-ENV/
-
-# Output directories (regenerated)
-output/
-temp_uploads/
-gradcam_images/
-
-# Git
+# Git metadata
 .git/
 .gitignore
-.gitattributes
 
-# IDE
+# VSCode / IDE files
 .vscode/
-.idea/
 *.swp
 
-# Environment variables (use secrets instead)
+# Environment / secrets (never include in image)
 .env
-.env.local
+*.pem
+*.key
+*.crt
 
-# CI/CD
-.github/
+# Local data files
+diagnosis_results.json
 
-# Documentation
-README.md
-*.md
-
-# Logs
-*.log
-
-# Testing
-.pytest_cache/
-tests/
-
-# Temporary files
-*.tmp
-*.bak
-fix_*.py
-patch_*.py
-create_*.py
-
-# System files
+# OS junk
 .DS_Store
 Thumbs.db

@@ -264,7 +264,7 @@ Output your analysis in this EXACT JSON format (valid JSON only, no markdown):
 
 CRITICAL: Return ONLY the JSON object, no additional text or markdown formatting."""
 
-        model = genai.GenerativeModel("gemini-1.5-flash")
+        model = genai.GenerativeModel("gemini-2.5-flash")
         response = model.generate_content(
             prompt,
             generation_config=genai.types.GenerationConfig(
@@ -307,7 +307,7 @@ def analyze_healthy_nail(image_path: str) -> dict:
         if not os.getenv("GEMINI_API_KEY"):
             return None
             
-        model = genai.GenerativeModel("gemini-1.5-flash")
+        model = genai.GenerativeModel("gemini-2.5-flash")
         
         # Load image
         if not os.path.exists(image_path):
@@ -328,7 +328,9 @@ def analyze_healthy_nail(image_path: str) -> dict:
         }
         """
         
+        logger.info(f"Sending request to Gemini (analyze_healthy_nail) with model {model.model_name}...")
         response = model.generate_content([prompt, img])
+        logger.info(f"Gemini response received. Text: {response.text[:200]}...")
         text = _extract_gemini_text(response)
         
         # Clean json
@@ -337,6 +339,7 @@ def analyze_healthy_nail(image_path: str) -> dict:
             lines = text.split("\n")
             text = "\n".join(lines[1:-1]) if len(lines) > 2 else text
             
+        logger.info(f"Parsed Gemini response: {text}")
         return json.loads(text)
     except Exception as e:
         logger.error(f"Error in analyze_healthy_nail: {e}")
@@ -389,8 +392,7 @@ def build_llm_description(results: dict, disease_db: list, symptoms: str) -> str
             "You are a medical information assistant (not a doctor). Using the context below, "
             "explain the likely nail condition in plain English. Be concise (120-200 words), include: "
             "what it is, common visual signs, related symptoms, when to see a doctor, and general "
-            "(non-prescriptive) care guidance. Mention model confidence at the end. Avoid giving "
-            "diagnoses; use tentative language like 'may indicate', 'could suggest', etc.\n\n"
+            "(non-prescriptive) care guidance. Mention aggregated model confidence at the end. Avoid diagnosis claims; use tentative language like 'may indicate', 'could suggest'.\n\n"
             f"User symptoms: {symptoms_text}\n"
             f"Predicted condition: {predicted}\n"
             f"Model confidence scores: {json.dumps(breakdown)}\n\n"
@@ -403,7 +405,7 @@ def build_llm_description(results: dict, disease_db: list, symptoms: str) -> str
         else:
             prompt += "Note: No additional medical context available for this condition.\n"
 
-        model = genai.GenerativeModel("gemini-1.5-flash")
+        model = genai.GenerativeModel("gemini-2.5-flash")
         response = model.generate_content(
             prompt,
             generation_config=genai.types.GenerationConfig(
@@ -474,6 +476,12 @@ async def diagnose(
                 if url:
                     gradcam_urls.append(url)
 
+        # LLM REFINEMENT: Use LLM to refine prediction if symptoms are provided
+        llm_refined = None
+        final_prediction = cnn_prediction
+        final_score = cnn_score
+        final_reasoning = None
+
         # Check for Healthy Nail (if confidence is low or no symptoms)
         # Thresholds: Check if CNN confidence < 0.85 OR no symptoms provided
         is_healthy_check = False
@@ -492,11 +500,6 @@ async def diagnose(
                 logger.error(f"Error in healthy nail check: {e}")
 
         # LLM REFINEMENT: Use LLM to refine prediction if symptoms are provided
-        llm_refined = None
-        final_prediction = cnn_prediction
-        final_score = cnn_score
-        final_reasoning = None
-        
         if not is_healthy_check and symptoms and symptoms.strip() and len(top_3_candidates) >= 3:
             logger.info(f"Attempting LLM refinement with symptoms: {symptoms[:50]}...")
             llm_refined = llm_refine_prediction(top_3_candidates, symptoms, DISEASE_DB)
@@ -516,7 +519,7 @@ async def diagnose(
 
         # Generate description
         desc = ""
-        if llm_refined and final_reasoning:
+        if final_reasoning:
             desc = final_reasoning
         elif info:
             try:
@@ -526,7 +529,7 @@ async def diagnose(
                     f"Aggregated model confidence: {final_score:.2f}\n"
                     f"Medical context:\n{json.dumps(info)[:6000]}\n"
                 )
-                model = genai.GenerativeModel("gemini-1.5-flash")
+                model = genai.GenerativeModel("gemini-2.5-flash")
                 resp = model.generate_content(prompt)
                 desc = _extract_gemini_text(resp)
             except Exception:
@@ -552,6 +555,10 @@ async def diagnose(
             "aggregated_data": aggregated,
         }
 
+        # Log the final decision
+        logger.info(f"Final decision sent to frontend: {final_prediction} (Confidence: {final_score})")
+        logger.info(f"Final JSON Payload: {json.dumps(convert_to_serializable(final_payload), default=str)}")
+        
         return JSONResponse(content=convert_to_serializable(final_payload))
     finally:
         for p in saved_paths:
@@ -559,11 +566,16 @@ async def diagnose(
             except: pass
 
 
-@app.get("/health")
-async def health():
+@app.get("/health", response_class=JSONResponse)
+async def health(request: Request):
     """
     Health check endpoint returning system readiness information.
+    Supports Content Negotiation: returns HTML for browsers, JSON for others.
     """
+    # Check for HTML preference (Content Negotiation)
+    accept = request.headers.get("Accept", "")
+    if "text/html" in accept:
+        return templates.TemplateResponse("health.html", {"request": request})
     try:
         # Check model status
         model_loaded = False

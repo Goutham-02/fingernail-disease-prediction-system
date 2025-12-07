@@ -7,6 +7,7 @@ pydantic
 # Deep Learning
 torch
 torchvision
+timm
 
 # Computer Vision
 opencv-python
@@ -18,6 +19,9 @@ google-generativeai
 # Cloud Storage
 cloudinary
 
+# Security
+cryptography
+
 # Environment Management
 python-dotenv
 
@@ -26,6 +30,7 @@ jinja2
 
 # Data Processing
 numpy
+matplotlib
 
 # HTTP Client (for testing)
 requests
